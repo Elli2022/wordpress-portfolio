@@ -16,7 +16,7 @@ export default function SiteShell({
   children,
 }: SiteShellProps) {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black px-6 py-10 md:px-12">
+    <main className="page-shell">
       <div className="mx-auto max-w-5xl">
         <Navigation
           portfolioLink={portfolioLink}

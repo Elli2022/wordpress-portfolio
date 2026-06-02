@@ -5,6 +5,7 @@ import {
   getProjectsByCategory,
   projectCategories,
 } from "@/data/projects";
+import Navigation from "./components/Navigation";
 import ProjectCarousel from "./components/ProjectCarousel";
 import ProjectThumbnail from "./components/ProjectThumbnail";
 import { getCarouselSlides } from "@/data/carousel-slides";
@@ -63,21 +64,11 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
 
   return (
     <main className="page-shell">
-      <nav className="nav-container" aria-label="Primary navigation">
-        <div className="nav-left">
-          <a key={mainLinks.portfolio.id} href={mainLinks.portfolio.uri} className="link">
-            {mainLinks.portfolio.title}
-          </a>
-        </div>
-        <div className="nav-right">
-          <a key={mainLinks.about.id} href={mainLinks.about.uri} className="link">
-            {mainLinks.about.title}
-          </a>
-          <a key={mainLinks.contact.id} href={mainLinks.contact.uri} className="link">
-            {mainLinks.contact.title}
-          </a>
-        </div>
-      </nav>
+      <Navigation
+        portfolioLink={mainLinks.portfolio}
+        aboutLink={mainLinks.about}
+        contactLink={mainLinks.contact}
+      />
 
       <header className="hero">
         <p className="hero-kicker">{homePage.presentingText}</p>

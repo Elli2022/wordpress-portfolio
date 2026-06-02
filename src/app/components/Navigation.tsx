@@ -1,5 +1,4 @@
-// components/Navigation.tsx
-import React from 'react';
+import React from "react";
 
 interface NavLink {
   id: string;
@@ -13,30 +12,31 @@ interface NavigationProps {
   contactLink?: NavLink;
 }
 
-const Navigation: React.FC<NavigationProps> = ({ portfolioLink, aboutLink, contactLink }) => {
+const Navigation: React.FC<NavigationProps> = ({
+  portfolioLink,
+  aboutLink,
+  contactLink,
+}) => {
   return (
-    <nav className="nav-container">
-      {/* Vänster länk */}
+    <nav className="nav-container" aria-label="Primary navigation">
       <div className="nav-left">
-        {portfolioLink && (
-          <a href={portfolioLink.uri} className="link">
+        {portfolioLink ? (
+          <a href={portfolioLink.uri} className="nav-pill">
             {portfolioLink.title}
           </a>
-        )}
+        ) : null}
       </div>
-
-      {/* Höger länkar */}
       <div className="nav-right">
-        {aboutLink && (
-          <a href={aboutLink.uri} className="link">
+        {aboutLink ? (
+          <a href={aboutLink.uri} className="nav-pill">
             {aboutLink.title}
           </a>
-        )}
-        {contactLink && (
-          <a href={contactLink.uri} className="link">
+        ) : null}
+        {contactLink ? (
+          <a href={contactLink.uri} className="nav-pill">
             {contactLink.title}
           </a>
-        )}
+        ) : null}
       </div>
     </nav>
   );

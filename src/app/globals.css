@@ -7,21 +7,15 @@
   --hover-color: #1f4fb6;
   --text-color: #0f172a;
   --muted-text-color: #475569;
-  --background-start: #eef2ff;
+  /* Original Capace palette — always light, no OS dark-mode flip */
+  --background-start: #d6dbdc;
   --background-end: #ffffff;
   --card-background: #ffffff;
   --card-border: #dbe2f0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #e2e8f0;
-    --muted-text-color: #94a3b8;
-    --background-start: #020617;
-    --background-end: #0f172a;
-    --card-background: #111827;
-    --card-border: #334155;
-  }
+html {
+  color-scheme: light;
 }
 
 body {
@@ -52,8 +46,29 @@ body {
   align-items: center;
 }
 
-.nav-right a {
-  margin-left: 0.75rem;
+.nav-right {
+  gap: 0.5rem;
+}
+
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: background-color 0.2s ease;
+}
+
+.nav-pill:hover,
+.nav-pill:focus {
+  background: var(--hover-color);
+  color: #fff;
+  text-decoration: none;
 }
 
 .link {
@@ -500,6 +515,7 @@ body {
 .case-study-card h2 {
   margin: 0 0 12px;
   font-size: 1.35rem;
+  color: var(--text-color);
 }
 
 .case-study-card p {
@@ -516,12 +532,14 @@ body {
 }
 
 .btn-secondary {
-  background: #111827;
+  background: var(--primary-color);
+  opacity: 0.92;
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-  background: #374151;
+  background: var(--hover-color);
+  opacity: 1;
 }
 
 .btn-disabled {
