@@ -1,5 +1,6 @@
 // components/ProjectPost.tsx
 import React from "react";
+import Image from "next/image";
 
 let globalPostData: any;
 
@@ -15,9 +16,11 @@ const ProjectPost = () => {
     <div className="p-4 border border-gray-200 rounded shadow-sm">
       <h1 className="text-xl font-bold mb-2">{title}</h1>
       {featuredImage?.node?.mediaItemUrl && (
-        <img
+        <Image
           src={featuredImage.node.mediaItemUrl}
-          alt={featuredImage.node.slug}
+          alt={featuredImage.node.altText || title}
+          width={1200}
+          height={760}
           className="w-full h-auto object-cover rounded"
         />
       )}

@@ -5,8 +5,9 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Elli Portfolio',
-  description: 'Portfolio built with Next.js and WordPress GraphQL.',
+  title: "Headless WordPress Portfolio",
+  description:
+    "A modern portfolio frontend powered by Next.js and WordPress GraphQL content.",
 }
 
 export default function RootLayout({

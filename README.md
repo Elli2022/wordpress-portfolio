@@ -1,36 +1,31 @@
-# WordPress Portfolio
+# Headless WordPress Portfolio
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
 ![React](https://img.shields.io/badge/React-18-61dafb)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6)
-![WordPress](https://img.shields.io/badge/CMS-WordPress%20GraphQL-21759b)
-![Status](https://img.shields.io/badge/Status-Modernizing-success)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-3-06b6d4)
+![WPGraphQL](https://img.shields.io/badge/CMS-WPGraphQL-6b21a8)
 
-`wordpress-portfolio` is Elli's first real agency practice project (Capace, Malmo, Nov-Feb), now rebuilt to run again with a modernized and more stable setup.
+A modern portfolio frontend built with Next.js and TypeScript, powered by headless WordPress content through WPGraphQL.
 
-## Overview
+## Features
 
-- Headless portfolio frontend built in `Next.js` + `TypeScript`
-- Content is served from WordPress via `WPGraphQL`
-- Home, About, All and Project detail pages come from CMS data
-- Pagination and slug-based project routes are server rendered
+- Server-rendered project listing and detail pages
+- Cursor-based pagination for WordPress posts
+- Responsive card-based portfolio layout
+- Reusable query layer for CMS content fetching
 
-## Project Goals (2026 refresh)
+## Tech Stack
 
-- Keep the original visual identity and content structure
-- Improve runtime stability and null-safe rendering
-- Reduce legacy dependencies and maintenance risk
-- Prepare for safer hosting/deployment going forward
+- Next.js App Router
+- TypeScript
+- Tailwind CSS + custom global styles
+- WordPress + WPGraphQL
 
-## Recommended CMS Hosting (free-tier friendly)
+## Screenshots
 
-If AwardSpace feels limiting, the best smoother alternatives are:
-
-- `WordPress on Cloudflare Tunnel + cheap VPS` (most control, stable GraphQL)
-- `WordPress on Railway/Render/Fly.io` (check current free-tier limits)
-- `Self-hosted WordPress + managed DB` with WPGraphQL plugins
-
-For this repo, the frontend stays unchanged while CMS hosting can be swapped by updating `wordpressApiKey`.
+### Home Page
+![Home page screenshot](./public/screenshots/homepage.png)
 
 ## Local Development
 
@@ -39,34 +34,20 @@ npm install
 npm run dev
 ```
 
-App URL: `http://localhost:3000`
-Production URL: `https://elli-wordpress-portfolio.vercel.app`
+Runs at `http://localhost:3000`.
 
 ## Environment Variables
 
+Create `.env.local`:
+
 ```bash
 wordpressApiKey=https://your-wordpress-graphql-endpoint
-NEXT_PUBLIC_DEPLOY_URL=https://your-frontend-deploy-url
+NEXT_PUBLIC_DEPLOY_URL=https://elli-wordpress-portfolio.netlify.app
 ```
 
-## Main Code Areas
+## Project Structure
 
-- `src/app/page.tsx` home + project grid
-- `src/app/projects/[slugs]/page.tsx` project detail route
-- `src/lib/queries/` GraphQL query helpers
-- `src/lib/wp.ts` shared WordPress request function
-- `wordpress/mu-plugins/portfolio-cms.php` WPGraphQL compatibility bridge
-
-## Original Repositories (Nov 2023)
-
-These are the repositories from the same period when this portfolio work started:
-
-- `frontend-application` — https://github.com/Elli2022/frontend-application
-- `typescript-app-template` — https://github.com/Elli2022/typescript-app-template
-- `nextjs-auth-blog-modernized` — https://github.com/Elli2022/nextjs-auth-blog-modernized
-- `fullstack-application` — https://github.com/Elli2022/fullstack-application
-- `wordpress-portfolio` — https://github.com/Elli2022/wordpress-portfolio
-
-## Historical Snapshot Tags
-
-Legacy timeline tags are preserved from the 2023-2024 development period.
+- `src/app/page.tsx` - Home page and project grid
+- `src/app/projects/[slugs]/page.tsx` - Project detail route
+- `src/lib/queries/` - GraphQL query helpers
+- `src/lib/wp.ts` - Shared WordPress GraphQL client

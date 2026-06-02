@@ -2,214 +2,249 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Anpassa färgschemat enligt din design */
 :root {
-  --primary-color: #007bff; /* Blå */
-  --hover-color: #0056b3; /* Mörkare blå */
-  --text-color: #000; /* Svart */
-  --background-start: #d6dbdc; /* Ljusgrå */
-  --background-end: #fff; /* Vit */
+  --primary-color: #2f6fed;
+  --hover-color: #1f4fb6;
+  --text-color: #0f172a;
+  --muted-text-color: #475569;
+  --background-start: #eef2ff;
+  --background-end: #ffffff;
+  --card-background: #ffffff;
+  --card-border: #dbe2f0;
 }
 
-/* Mörkt tema */
 @media (prefers-color-scheme: dark) {
   :root {
-    --text-color: white; 
-    --background-start: #000; /* Svart */
-    --background-end: #000; /* Svart */
+    --text-color: #e2e8f0;
+    --muted-text-color: #94a3b8;
+    --background-start: #020617;
+    --background-end: #0f172a;
+    --card-background: #111827;
+    --card-border: #334155;
   }
 }
 
 body {
   color: var(--text-color);
   background: linear-gradient(to bottom, var(--background-start), var(--background-end));
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  margin: 0;
+  min-height: 100vh;
 }
 
-/* Navigation styles */
+.page-shell {
+  margin: 0 auto;
+  max-width: 1180px;
+  padding: 2rem 1.25rem 3rem;
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 1rem;
 }
 
-.nav-left, .nav-right {
+.nav-left,
+.nav-right {
   display: flex;
+  align-items: center;
 }
 
-/* Specifika stilar för vänster länk */
-.nav-left a {
-  margin-right: auto; /* Skjuter allt i .nav-right till höger */
-  font-weight: bold; /* Gör texten fetare om det önskas */
-  text-decoration: none; /* Tar bort understrykning */
-  font-size: 1rem; /* Ställ in önskad storlek */
-}
-
-/* Specifika stilar för höger länkar */
 .nav-right a {
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 1rem;
-  margin-left: 10px; /* Lägger till utrymme mellan länkarna */
-}
-
-/* För att lägga till en hover-effekt på länkarna */
-.nav-container a:hover {
-  color: var(--primary-color); /* Färgändring vid hover */
-}
-
-
-.btn {
-  padding: 10px 25px;
-  background-color: var(--primary-color);
-  color: white;
-  text-transform: uppercase;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: inline-block; /* Lägg till detta för att korrigera positionering */
-  margin-top: 20px; /* Justera avståndet till överliggande element */
+  margin-left: 0.75rem;
 }
 
 .link {
   color: var(--text-color);
-  cursor: pointer;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1.1rem;
-  display: inline-block;
-  margin-right: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
-link, .home2-link{
-  margin-top: 20px;
+.link:hover,
+.link:focus {
+  color: var(--primary-color);
+  text-decoration: none;
 }
 
-/* Stilar för hover-effekter */
-.btn:hover, .btn:focus {
-  background-color: #0056b3; /* Mörkare blå när knappen är hoverad eller fokuserad */
-  color: white; /* Vit text vid hover */
-  outline: none;
-}
-
-/* Ta bort hover-effekter för .link */
-.link:hover, .link:focus {
-  color: var(--foreground-rgb); /* Behåller färgen svart */
-  text-decoration: underline; /* Om du vill ha en indikator på att det är en länk, annars ta bort denna rad */
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
-  gap: 1rem; /* Adjust the spacing between images as needed */
-}
-
-.gallery-image {
-  width: 100%; /* Makes the image responsive */
-  height: auto; /* Maintain the aspect ratio */
-  object-fit: cover; /* Cover the area without stretching the image */
-}
-
-
-/* Används för att korrigera layouten för kategori-länkar om de är knappar */
-.category-links {
+.hero {
+  margin-top: 3rem;
   text-align: center;
-  margin-top: 20px; /* Lägg till önskat avstånd från "Explore Works"-knappen */
 }
 
-/* Om du vill att kategori-länkarna ska ha lite utrymme mellan dem */
-.category-link:not(:last-child) {
-  margin-right: 15px;
+.hero-kicker {
+  margin: 0;
+  color: var(--muted-text-color);
 }
 
-/* Anpassar storleken på kategoriknapparna */
-.category-link {
-  padding: 8px 20px; /* Mindre än .btn om du vill */
-  font-size: 0.875rem; /* Mindre än .btn om du vill */
+.hero-title {
+  margin: 0.75rem auto 0;
+  max-width: 18ch;
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  line-height: 1.08;
+  font-weight: 700;
 }
 
+.btn {
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.2rem;
+  background-color: var(--primary-color);
+  color: white;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+  display: inline-block;
+}
 
-/* Anpassar .posts-container för att använda grid layout */
-.posts-container {
+.btn:hover,
+.btn:focus {
+  background-color: var(--hover-color);
+}
+
+.chip-links {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.chip-link {
+  display: inline-block;
+  margin: 0.3rem;
+  border: 1px solid var(--card-border);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  text-decoration: none;
+  color: var(--muted-text-color);
+  font-size: 0.92rem;
+}
+
+.chip-link:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.posts-grid {
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.25rem;
+  gap: 1.15rem;
 }
 
 .post-card {
+  text-decoration: none;
+  color: inherit;
+  background: var(--card-background);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  overflow: hidden;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.75);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 16px 30px -24px rgba(15, 23, 42, 0.45);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 
 .post-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 18px 34px -24px rgba(15, 23, 42, 0.68);
 }
 
-.image-container {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  background: #eef1f3;
+.post-card-media {
   position: relative;
-  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #cbd5e1;
 }
 
-.image-container img {
-  width: 100%;
-  height: 100%;
+.post-card-media img {
   object-fit: cover;
 }
 
-.image-placeholder {
-  width: 100%;
+.post-card-fallback {
   height: 100%;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #334155;
   font-size: 0.9rem;
-  color: #6b7280;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: linear-gradient(135deg, #d8e2ff, #dbeafe);
+}
+
+.post-card-fallback-panel {
+  grid-column: 1 / -1;
+  border: 1px dashed var(--card-border);
+  border-radius: 14px;
+  padding: 1rem;
+  text-align: center;
+  color: var(--muted-text-color);
+  background: color-mix(in srgb, var(--card-background) 92%, #94a3b8 8%);
 }
 
 .post-info {
-  padding: 14px 16px 18px;
+  padding: 0.95rem 0.95rem 1.05rem;
 }
 
 .post-title {
-  margin-top: 0.5rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-align: left;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.4;
 }
 
-.post-info p {
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  text-align: left;
-  color: #4b5563;
+.post-subtitle {
+  margin: 0.35rem 0 0;
+  color: var(--muted-text-color);
+  font-size: 0.92rem;
 }
 
-.repo-pill {
-  display: inline-flex;
+.pagination-shell {
+  margin-top: 1.4rem;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  padding: 6px 12px;
-  border-radius: 9999px;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  background: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  color: #111827;
-  font-size: 0.85rem;
-  transition: all 0.2s ease;
+  gap: 0.65rem;
 }
 
-.repo-pill:hover {
-  background: #111827;
-  color: #fff;
+.pagination-button {
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  background: var(--card-background);
+  color: var(--text-color);
+  padding: 0.4rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-page {
+  color: var(--muted-text-color);
+  font-weight: 500;
+}
+
+.freelance-section {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.freelance-title {
+  margin: 0;
+  color: var(--muted-text-color);
+  font-size: 1.05rem;
+}
+
+.freelance-description {
+  margin: 0.45rem 0 0;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+}
+
+.site-footer {
+  margin-top: 3rem;
+  text-align: center;
+  color: var(--muted-text-color);
+  font-size: 0.9rem;
 }

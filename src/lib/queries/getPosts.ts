@@ -50,7 +50,15 @@ export default async function getPosts(
     );
 
     if (!resPost?.data) {
-      throw new Error("Could not fetch posts");
+      return {
+        posts: [],
+        pageInfo: {
+          startCursor: "",
+          endCursor: "",
+          hasNextPage: false,
+          hasPreviousPage: false,
+        },
+      };
     }
 
     return {
@@ -61,6 +69,14 @@ export default async function getPosts(
     };
   } catch (error) {
     console.error("Error fetching posts:", error);
-    throw error;
+    return {
+      posts: [],
+      pageInfo: {
+        startCursor: "",
+        endCursor: "",
+        hasNextPage: false,
+        hasPreviousPage: false,
+      },
+    };
   }
 }

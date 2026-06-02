@@ -2,6 +2,7 @@
 
 
 import React from "react";
+import Image from "next/image";
 import getPages from "@/lib/queries/getPages";
 import Navigation from "../../components/Navigation";
 import WP from "@/lib/wp";
@@ -39,13 +40,10 @@ interface FeaturedImageNode {
   slug: string;
 }
 
-const apiKey = process.env.wordpressApiKey;
-
 export async function generateStaticParams() {
-  // Fetch all the slugs for the posts
   const posts = await WP(`
   query GetPosts {
-    posts {
+    posts(first: 100) {
       edges {
         node {
           slug
@@ -53,14 +51,14 @@ export async function generateStaticParams() {
       }
     }
   }`);
-  const paths: Array<{ slugs: string }> = [];
-  posts?.data?.posts?.edges?.map((post: any) => {
-    if (post && post.node && post.node.slug) {
-      paths.push({ slugs: post.node.slug });
-    }
-  });
 
-  return paths;
+  if (!posts?.data?.posts?.edges) {
+    return [];
+  }
+
+  return posts.data.posts.edges
+    .filter((edge: { node?: { slug?: string } }) => edge?.node?.slug)
+    .map((edge: { node: { slug: string } }) => ({ slugs: edge.node.slug }));
 }
 
 const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
@@ -109,10 +107,13 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
       contactLink={mainLinks.contact}
     />
     <h1>{globalPostData.title}</h1> 
-    {globalPostData.featuredImage && globalPostData.featuredImage.node && (
-      <img
+    {globalPostData.featuredImage?.node?.mediaItemUrl && (
+      <Image
         src={globalPostData.featuredImage.node.mediaItemUrl}
-        alt={globalPostData.featuredImage.node.slug}
+        alt={globalPostData.featuredImage.node.altText || globalPostData.title}
+        width={1200}
+        height={760}
+        className="h-auto w-full"
       />
     )}
     <div dangerouslySetInnerHTML={{ __html: globalPostData.content }} />
