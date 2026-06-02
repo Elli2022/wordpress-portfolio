@@ -7,7 +7,9 @@
 ![WPGraphQL](https://img.shields.io/badge/CMS-WPGraphQL-6b21a8)
 ![Status](https://img.shields.io/badge/Status-Live-success)
 
-**Live:** [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app)
+**Live (canonical):** [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app)
+
+Production deploys from `main` via Vercel. The old Netlify URL (`elli-wordpress-portfolio.netlify.app`) redirects here if that site is still connected.
 
 Capace internship portfolio (Malmö, Nov 2023 – Feb 2024), modernized in 2026 — same visual identity, stable deploy, interview-ready case studies.
 

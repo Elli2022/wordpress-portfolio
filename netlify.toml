@@ -1,0 +1,7 @@
+# Portfolio frontend is hosted on Vercel. If this Netlify site is still connected,
+# all traffic is redirected to the canonical production URL.
+[[redirects]]
+  from = "/*"
+  to = "https://elli-wordpress-portfolio.vercel.app/:splat"
+  status = 301
+  force = true
