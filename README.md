@@ -40,6 +40,7 @@ npm run dev
 ```
 
 App URL: `http://localhost:3000`
+Production URL: `https://elli-wordpress-portfolio.vercel.app`
 
 ## Environment Variables
 
@@ -52,9 +53,19 @@ NEXT_PUBLIC_DEPLOY_URL=https://your-frontend-deploy-url
 
 - `src/app/page.tsx` home + project grid
 - `src/app/projects/[slugs]/page.tsx` project detail route
-- `src/pages/queries/` GraphQL query helpers
-- `src/pages/api/wp.tsx` shared WordPress request function
+- `src/lib/queries/` GraphQL query helpers
+- `src/lib/wp.ts` shared WordPress request function
 - `wordpress/mu-plugins/portfolio-cms.php` WPGraphQL compatibility bridge
+
+## Original Repositories (Nov 2023)
+
+These are the repositories from the same period when this portfolio work started:
+
+- `frontend-application` — https://github.com/Elli2022/frontend-application
+- `typescript-app-template` — https://github.com/Elli2022/typescript-app-template
+- `nextjs-auth-blog-modernized` — https://github.com/Elli2022/nextjs-auth-blog-modernized
+- `fullstack-application` — https://github.com/Elli2022/fullstack-application
+- `wordpress-portfolio` — https://github.com/Elli2022/wordpress-portfolio
 
 ## Historical Snapshot Tags
 

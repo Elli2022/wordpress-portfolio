@@ -23,6 +23,7 @@
 body {
   color: var(--text-color);
   background: linear-gradient(to bottom, var(--background-start), var(--background-end));
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
 /* Navigation styles */
@@ -74,13 +75,13 @@ body {
 }
 
 .link {
-  color: var(--foreground-rgb); /* Sätter färgen till svart (eller vad nu --foreground-rgb är satt till) */
+  color: var(--text-color);
   cursor: pointer;
   text-decoration: none;
   font-weight: bold;
-  font-size: 1.25rem; /* Anpassa storleken efter din design */
-  display: inline-block; /* Lägg till detta om du vill justera positionering */
-  margin-right: 15px; /* Justera avståndet mellan länkar */
+  font-size: 1.1rem;
+  display: inline-block;
+  margin-right: 15px;
 }
 
 link, .home2-link{
@@ -134,44 +135,81 @@ link, .home2-link{
 /* Anpassar .posts-container för att använda grid layout */
 .posts-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Ändra 250px till önskad minsta bredd */
-  gap: 1rem; /* Detta är avståndet mellan grid-elementen */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
 }
 
-/* Stilar för varje grid-element som innehåller bild och text */
-.post-item {
+.post-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  overflow: hidden; /* Gör så att bilden inte går utanför sin container */
+  align-items: stretch;
+  overflow: hidden;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* Stilar för bilder för att göra dem kvadratiska och centrerade */
-.post-item img {
-  width: 100%; /* Fyller bredden av sin container */
-  height: 0; /* Sätter en initial höjd till 0 */
-  padding-top: 100%; /* Padding-top på 100% av bredden ger en kvadratisk bild */
-  object-fit: cover; /* Ser till att bilden täcker hela utrymmet utan att förvrängas */
-  position: absolute; /* Positionerar bilden absolut inuti sin container */
+.post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
-/* Stilar för bild-containern för att göra den kvadratisk och relativt positionerad */
-.post-item .image-container {
-  width: 100%; /* Fyller bredden av sin container */
-  padding-top: 100%; /* Skapar en kvadratisk container */
-  position: relative; /* Gör det möjligt att absolut positionera bilden inuti */
+.image-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #eef1f3;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Exempel på en titelstil under bilden */
-.post-title{
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.post-info {
+  padding: 14px 16px 18px;
+}
+
+.post-title {
   margin-top: 0.5rem;
   font-size: 1.1rem;
   font-weight: bold;
-  text-align: center;
+  text-align: left;
 }
 
-p{
+.post-info p {
   margin-top: 0.5rem;
-  font-size: 1.1rem;
-  text-align: center;
+  font-size: 0.95rem;
+  text-align: left;
+  color: #4b5563;
+}
+
+.repo-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  color: #111827;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.repo-pill:hover {
+  background: #111827;
+  color: #fff;
 }

@@ -6,7 +6,8 @@ export default async function About() {
   const aboutData = await getAbout("/about");
   const navlinks = await getPages();
   const navHits = Object.values(navlinks?.edges ?? {}).map((hit: any) => hit.node);
-  const deployUrl = process.env.NEXT_PUBLIC_DEPLOY_URL || "http://localhost:3000";
+  const deployUrl =
+    process.env.NEXT_PUBLIC_DEPLOY_URL || "https://elli-wordpress-portfolio.vercel.app";
 
   const specialLink = navHits.find((hit) => hit.title === "Special Link");
 
