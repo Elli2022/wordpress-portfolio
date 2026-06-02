@@ -1,7 +1,7 @@
 export type ImageVariant = "thumb" | "desktop" | "mobile";
 
 const variantWidths: Record<ImageVariant, number> = {
-  thumb: 900,
+  thumb: 640,
   desktop: 1280,
   mobile: 390,
 };

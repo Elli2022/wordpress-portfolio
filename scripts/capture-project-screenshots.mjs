@@ -37,7 +37,7 @@ const outRoot = path.join(root, "public", "screenshots", "projects");
 const viewports = {
   desktop: { width: 1280, height: 800 },
   mobile: { width: 390, height: 844 },
-  thumb: { width: 900, height: 560 },
+  thumb: { width: 640, height: 360 },
 };
 
 async function captureProject(browser, project) {
