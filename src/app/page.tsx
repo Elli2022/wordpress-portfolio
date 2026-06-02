@@ -5,7 +5,9 @@ import {
   getProjectsByCategory,
   projectCategories,
 } from "@/data/projects";
+import ProjectCarousel from "./components/ProjectCarousel";
 import ProjectThumbnail from "./components/ProjectThumbnail";
+import { getCarouselSlides } from "@/data/carousel-slides";
 import { homeFallback } from "@/lib/fallback-content";
 
 interface SearchParams {
@@ -18,14 +20,6 @@ interface NavLink {
   uri: string;
 }
 
-const originReposNov2023 = [
-  { name: "frontend-application", url: "https://github.com/Elli2022/frontend-application" },
-  { name: "typescript-app-template", url: "https://github.com/Elli2022/typescript-app-template" },
-  { name: "nextjs-auth-blog-modernized", url: "https://github.com/Elli2022/nextjs-auth-blog-modernized" },
-  { name: "fullstack-application", url: "https://github.com/Elli2022/fullstack-application" },
-  { name: "wordpress-portfolio", url: "https://github.com/Elli2022/wordpress-portfolio" },
-];
-
 function getParam(searchParams: SearchParams, key: string, fallback = ""): string {
   const value = searchParams[key];
   if (Array.isArray(value)) return value[0] ?? fallback;
@@ -35,6 +29,7 @@ function getParam(searchParams: SearchParams, key: string, fallback = ""): strin
 export default async function Home({ searchParams }: { searchParams: SearchParams }) {
   const activeCategory = getParam(searchParams, "category");
   const showcaseProjects = getProjectsByCategory(activeCategory || undefined);
+  const carouselSlides = getCarouselSlides();
 
   const [cmsHome, navData] = await Promise.all([getHome("/home"), getPages()]);
   const homePage = cmsHome?.homePage ?? homeFallback;
@@ -86,6 +81,8 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
           </a>
         )}
       </header>
+
+      <ProjectCarousel slides={carouselSlides} />
 
       <section className="category-links topic-row" aria-label="Filter projects by topic">
         <Link
@@ -147,23 +144,6 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
         >
           {homePage.freelanceProjects.freelanceProjectsButton}
         </a>
-      </section>
-
-      <section className="repos-section" aria-label="Original repositories from 2023">
-        <h3 className="repos-heading">Original repos from Nov 2023</h3>
-        <div className="topic-row">
-          {originReposNov2023.map((repo) => (
-            <a
-              key={repo.name}
-              href={repo.url}
-              target="_blank"
-              rel="noreferrer"
-              className="repo-pill"
-            >
-              {repo.name}
-            </a>
-          ))}
-        </div>
       </section>
 
       <footer className="site-footer">

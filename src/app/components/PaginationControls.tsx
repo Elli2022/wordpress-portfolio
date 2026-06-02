@@ -48,23 +48,25 @@ const PaginationControls: FC<PaginationControlsProps> = ({
   return (
     <div className="pagination-shell">
       <button
+        type="button"
         className="pagination-button"
         disabled={!hasPrevPage}
         onClick={handlePrevPage}
         aria-label="Go to previous page"
       >
-        Previous
+        ‹
       </button>
 
-      <div className="pagination-page">Page {page}</div>
+      <div className="pagination-page">{page}</div>
 
       <button
+        type="button"
         className="pagination-button"
         disabled={!hasNextPage}
         onClick={handleNextPage}
         aria-label="Go to next page"
       >
-        Next
+        ›
       </button>
     </div>
   );
