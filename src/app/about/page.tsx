@@ -16,11 +16,9 @@ export default async function About() {
 
   return (
     <SiteShell portfolioLink={portfolio} aboutLink={about} contactLink={contact}>
-      <header className="text-center mt-10 mb-8">
-        <p className="mt-4 uppercase tracking-wide text-sm text-gray-600">
-          {presentingText}
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold mt-2">{title}</h1>
+      <header className="content-header">
+        <p className="content-eyebrow">{presentingText}</p>
+        <h1 className="content-title">{title}</h1>
       </header>
 
       <section className="case-study-card max-w-3xl mx-auto">

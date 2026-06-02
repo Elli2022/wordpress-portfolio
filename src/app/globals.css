@@ -5,13 +5,27 @@
 :root {
   --primary-color: #2f6fed;
   --hover-color: #1f4fb6;
-  --text-color: #0f172a;
-  --muted-text-color: #475569;
-  /* Original Capace palette — always light, no OS dark-mode flip */
+  --text-color: #1a1a1a;
+  --muted-text-color: #4a5568;
+  /* Original Capace palette — light beige page, white cards */
   --background-start: #d6dbdc;
   --background-end: #ffffff;
   --card-background: #ffffff;
-  --card-border: #dbe2f0;
+  --card-border: #c5cdd8;
+  --pitch-background: #eef4ff;
+}
+
+/* Keep the same light palette even when the OS prefers dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: #1a1a1a;
+    --muted-text-color: #4a5568;
+    --background-start: #d6dbdc;
+    --background-end: #ffffff;
+    --card-background: #ffffff;
+    --card-border: #c5cdd8;
+    --pitch-background: #eef4ff;
+  }
 }
 
 html {
@@ -55,8 +69,8 @@ body {
   align-items: center;
   padding: 8px 18px;
   border-radius: 9999px;
-  background: var(--primary-color);
-  color: #fff;
+  background-color: #2f6fed;
+  color: #ffffff;
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 600;
@@ -66,8 +80,8 @@ body {
 
 .nav-pill:hover,
 .nav-pill:focus {
-  background: var(--hover-color);
-  color: #fff;
+  background-color: #1f4fb6;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -105,8 +119,8 @@ body {
 .btn {
   margin-top: 1.5rem;
   padding: 0.7rem 1.2rem;
-  background-color: var(--primary-color);
-  color: white;
+  background-color: #2f6fed;
+  color: #ffffff;
   border-radius: 999px;
   text-decoration: none;
   font-weight: 600;
@@ -116,7 +130,8 @@ body {
 
 .btn:hover,
 .btn:focus {
-  background-color: var(--hover-color);
+  background-color: #1f4fb6;
+  color: #ffffff;
 }
 
 .chip-links {
@@ -487,6 +502,43 @@ body {
   color: #fff;
 }
 
+.content-header {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.content-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-text-color);
+}
+
+.content-title {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--text-color);
+}
+
+.content-lead {
+  margin: 1rem auto 0;
+  max-width: 42rem;
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: var(--muted-text-color);
+}
+
+.content-meta {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  color: var(--muted-text-color);
+}
+
 .back-link {
   display: inline-block;
   margin-top: 12px;
@@ -505,11 +557,12 @@ body {
 }
 
 .case-study-card {
-  background: var(--card-background);
+  background-color: #ffffff;
+  color: var(--text-color);
   border: 1px solid var(--card-border);
   border-radius: 16px;
   padding: 1.25rem 1.5rem;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
 }
 
 .case-study-card h2 {
@@ -531,15 +584,19 @@ body {
   margin-top: 18px;
 }
 
+.case-actions .btn {
+  margin-top: 0;
+}
+
 .btn-secondary {
-  background: var(--primary-color);
-  opacity: 0.92;
+  background-color: #2f6fed;
+  color: #ffffff;
 }
 
 .btn-secondary:hover,
 .btn-secondary:focus {
-  background: var(--hover-color);
-  opacity: 1;
+  background-color: #1f4fb6;
+  color: #ffffff;
 }
 
 .btn-disabled {
@@ -648,7 +705,7 @@ body {
   color: var(--text-color);
   padding: 1rem 1.1rem;
   border-left: 4px solid var(--primary-color);
-  background: color-mix(in srgb, var(--primary-color) 8%, transparent);
+  background-color: var(--pitch-background);
   border-radius: 0 12px 12px 0;
 }
 
@@ -660,6 +717,8 @@ body {
 .case-subheading {
   margin: 1.25rem 0 0.5rem;
   font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
 }
 
 .case-list {

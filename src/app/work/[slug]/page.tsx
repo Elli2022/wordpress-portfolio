@@ -26,11 +26,11 @@ export default async function WorkProjectPage({
         ← Back to portfolio
       </Link>
 
-      <header className="mt-6 mb-8">
-        <p className="uppercase tracking-wide text-sm text-gray-600">Case study</p>
-        <h1 className="text-4xl md:text-5xl font-bold mt-2">{project.name}</h1>
-        <p className="text-lg mt-4 text-gray-700">{project.summary}</p>
-        <p className="text-sm mt-2 text-gray-500">
+      <header className="content-header" style={{ marginTop: "1.5rem" }}>
+        <p className="content-eyebrow">Case study</p>
+        <h1 className="content-title">{project.name}</h1>
+        <p className="content-lead">{project.summary}</p>
+        <p className="content-meta">
           {project.role} · {project.period}
         </p>
         <div className="topic-row mt-5">

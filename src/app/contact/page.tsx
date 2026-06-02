@@ -16,12 +16,10 @@ export default async function Contact() {
 
   return (
     <SiteShell portfolioLink={portfolio} aboutLink={about} contactLink={contact}>
-      <header className="text-center mt-10 mb-8">
-        <p className="mt-4 uppercase tracking-wide text-sm text-gray-600">
-          {contactFallback.presentingText}
-        </p>
-        <h1 className="text-4xl md:text-5xl font-bold mt-2">{title}</h1>
-        <p className="text-lg mt-4 text-gray-700">{subtitle}</p>
+      <header className="content-header">
+        <p className="content-eyebrow">{contactFallback.presentingText}</p>
+        <h1 className="content-title">{title}</h1>
+        <p className="content-lead">{subtitle}</p>
       </header>
 
       <section className="case-study-card max-w-3xl mx-auto text-center">
