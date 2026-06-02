@@ -1,0 +1,81 @@
+{
+  "key": "group_post_info",
+  "title": "Post Info",
+  "fields": [
+    {
+      "key": "field_post_subtitle",
+      "label": "Subtitle",
+      "name": "subtitle",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "subtitle"
+    },
+    {
+      "key": "field_post_branding",
+      "label": "Branding",
+      "name": "branding",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "branding"
+    },
+    {
+      "key": "field_post_intro",
+      "label": "Project Intro Text",
+      "name": "projectintrotext",
+      "type": "textarea",
+      "show_in_graphql": 1,
+      "graphql_field_name": "projectintrotext"
+    },
+    {
+      "key": "field_post_description",
+      "label": "Project Description",
+      "name": "projectdescription",
+      "type": "wysiwyg",
+      "show_in_graphql": 1,
+      "graphql_field_name": "projectdescription"
+    },
+    {
+      "key": "field_post_client_heading",
+      "label": "Client Heading",
+      "name": "clientheading",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "clientheading"
+    },
+    {
+      "key": "field_post_date",
+      "label": "Date",
+      "name": "date",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "date"
+    },
+    {
+      "key": "field_post_client",
+      "label": "Client",
+      "name": "client",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "client"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "post"
+      }
+    ]
+  ],
+  "active": true,
+  "show_in_graphql": 1,
+  "graphql_field_name": "PostInfo",
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "map_graphql_types_from_location_rules": 0,
+  "graphql_types": ["Post"]
+}

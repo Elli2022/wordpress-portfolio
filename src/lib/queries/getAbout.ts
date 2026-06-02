@@ -9,6 +9,7 @@ export default async function getAbout(uri: string) {
               id
               aboutPage {
                 fieldGroupName
+                presentingText
                 aboutPageTitle
               }
               content

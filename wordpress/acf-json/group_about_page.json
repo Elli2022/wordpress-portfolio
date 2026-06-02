@@ -1,0 +1,35 @@
+{
+  "key": "group_about_page",
+  "title": "About Page",
+  "fields": [
+    {
+      "key": "field_about_presenting_text",
+      "label": "Presenting Text",
+      "name": "presentingText",
+      "type": "textarea",
+      "show_in_graphql": 1,
+      "graphql_field_name": "presentingText"
+    },
+    {
+      "key": "field_about_page_title",
+      "label": "About Page Title",
+      "name": "aboutPageTitle",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "aboutPageTitle"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page",
+        "operator": "==",
+        "value": "about"
+      }
+    ]
+  ],
+  "active": true,
+  "show_in_graphql": 1,
+  "graphql_field_name": "aboutPage",
+  "graphql_types": ["Page"]
+}

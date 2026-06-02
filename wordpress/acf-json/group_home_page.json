@@ -1,0 +1,183 @@
+{
+  "key": "group_home_page",
+  "title": "Home Page",
+  "fields": [
+    {
+      "key": "field_home_presenting_text",
+      "label": "Presenting Text",
+      "name": "presentingText",
+      "type": "textarea",
+      "show_in_graphql": 1,
+      "graphql_field_name": "presentingText"
+    },
+    {
+      "key": "field_home_page_title",
+      "label": "Home Page Title",
+      "name": "homePageTitle",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "homePageTitle"
+    },
+    {
+      "key": "field_home_button_text",
+      "label": "Button Text",
+      "name": "buttonText",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "buttonText"
+    },
+    {
+      "key": "field_home_button_url",
+      "label": "Button URL",
+      "name": "buttonUrl",
+      "type": "url",
+      "show_in_graphql": 1,
+      "graphql_field_name": "buttonUrl"
+    },
+    {
+      "key": "field_home_portfolio_link_text",
+      "label": "Portfolio Link Text",
+      "name": "portfolioLinkText",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "portfolioLinkText"
+    },
+    {
+      "key": "field_home_portfolio_link_url",
+      "label": "Portfolio Link URL",
+      "name": "portfolioLinkUrl",
+      "type": "link",
+      "show_in_graphql": 1,
+      "graphql_field_name": "portfolioLinkUrl"
+    },
+    {
+      "key": "field_home_about_link_text",
+      "label": "About Me Link Text",
+      "name": "aboutMeLinkText",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "aboutMeLinkText"
+    },
+    {
+      "key": "field_home_about_link_url",
+      "label": "About Me Link URL",
+      "name": "aboutMeLinkUrl",
+      "type": "link",
+      "show_in_graphql": 1,
+      "graphql_field_name": "aboutMeLinkUrl"
+    },
+    {
+      "key": "field_home_contact_link_text",
+      "label": "Contact Link Text",
+      "name": "contactLinkText",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "contactLinkText"
+    },
+    {
+      "key": "field_home_contact_link_url",
+      "label": "Contact Link URL",
+      "name": "contactLinkUrl",
+      "type": "link",
+      "show_in_graphql": 1,
+      "graphql_field_name": "contactLinkUrl"
+    },
+    {
+      "key": "field_home_project_gallery",
+      "label": "Project Gallery",
+      "name": "projectGallery",
+      "type": "repeater",
+      "layout": "block",
+      "show_in_graphql": 1,
+      "graphql_field_name": "projectGallery",
+      "sub_fields": [
+        {
+          "key": "field_home_gallery_title",
+          "label": "Project Title",
+          "name": "projectTitle",
+          "type": "text",
+          "show_in_graphql": 1,
+          "graphql_field_name": "projectTitle"
+        },
+        {
+          "key": "field_home_gallery_url",
+          "label": "Project URL",
+          "name": "projectUrl",
+          "type": "url",
+          "show_in_graphql": 1,
+          "graphql_field_name": "projectUrl"
+        },
+        {
+          "key": "field_home_gallery_image",
+          "label": "Project Image",
+          "name": "projectImage",
+          "type": "image",
+          "return_format": "array",
+          "show_in_graphql": 1,
+          "graphql_field_name": "projectImage"
+        }
+      ]
+    },
+    {
+      "key": "field_home_freelance_projects",
+      "label": "Freelance Projects",
+      "name": "freelanceProjects",
+      "type": "group",
+      "show_in_graphql": 1,
+      "graphql_field_name": "freelanceProjects",
+      "sub_fields": [
+        {
+          "key": "field_home_freelance_title",
+          "label": "Freelance Title",
+          "name": "freelanceTitle",
+          "type": "text",
+          "show_in_graphql": 1,
+          "graphql_field_name": "freelanceTitle"
+        },
+        {
+          "key": "field_home_freelance_description",
+          "label": "Freelance Description",
+          "name": "freelanceDescription",
+          "type": "textarea",
+          "show_in_graphql": 1,
+          "graphql_field_name": "freelanceDescription"
+        },
+        {
+          "key": "field_home_freelance_button",
+          "label": "Freelance Projects Button",
+          "name": "freelanceProjectsButton",
+          "type": "text",
+          "show_in_graphql": 1,
+          "graphql_field_name": "freelanceProjectsButton"
+        },
+        {
+          "key": "field_home_freelance_link",
+          "label": "Freelance Projects Link",
+          "name": "freelanceProjectsLink",
+          "type": "link",
+          "show_in_graphql": 1,
+          "graphql_field_name": "freelanceProjectsLink"
+        }
+      ]
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page",
+        "operator": "==",
+        "value": "home"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "active": true,
+  "show_in_graphql": 1,
+  "graphql_field_name": "homePage",
+  "map_graphql_types_from_location_rules": 0,
+  "graphql_types": ["Page"]
+}

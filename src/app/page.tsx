@@ -1,9 +1,12 @@
 import Link from "next/link";
-import Image from "next/image";
 import getHome from "@/lib/queries/getHome";
 import getPages from "@/lib/queries/getPages";
-import getPosts from "@/lib/queries/getPosts";
-import PaginationControls from "./components/PaginationControls";
+import {
+  getProjectsByCategory,
+  projectCategories,
+} from "@/data/projects";
+import ProjectThumbnail from "./components/ProjectThumbnail";
+import { homeFallback } from "@/lib/fallback-content";
 
 interface SearchParams {
   [key: string]: string | string[] | undefined;
@@ -15,20 +18,13 @@ interface NavLink {
   uri: string;
 }
 
-interface Post {
-  id: string;
-  slug: string;
-  title: string;
-  PostInfo?: {
-    subtitle?: string;
-  };
-  featuredImage?: {
-    node?: {
-      mediaItemUrl?: string;
-      altText?: string | null;
-    };
-  };
-}
+const originReposNov2023 = [
+  { name: "frontend-application", url: "https://github.com/Elli2022/frontend-application" },
+  { name: "typescript-app-template", url: "https://github.com/Elli2022/typescript-app-template" },
+  { name: "nextjs-auth-blog-modernized", url: "https://github.com/Elli2022/nextjs-auth-blog-modernized" },
+  { name: "fullstack-application", url: "https://github.com/Elli2022/fullstack-application" },
+  { name: "wordpress-portfolio", url: "https://github.com/Elli2022/wordpress-portfolio" },
+];
 
 function getParam(searchParams: SearchParams, key: string, fallback = ""): string {
   const value = searchParams[key];
@@ -37,128 +33,137 @@ function getParam(searchParams: SearchParams, key: string, fallback = ""): strin
 }
 
 export default async function Home({ searchParams }: { searchParams: SearchParams }) {
-  const page = Number(getParam(searchParams, "page", "1"));
-  const perPage = Number(getParam(searchParams, "per_page", "6"));
-  const afterCursor = getParam(searchParams, "after");
-  const beforeCursor = getParam(searchParams, "before");
+  const activeCategory = getParam(searchParams, "category");
+  const showcaseProjects = getProjectsByCategory(activeCategory || undefined);
 
-  const [{ posts, pageInfo }, homeData, navData] = await Promise.all([
-    getPosts(page, perPage, afterCursor, beforeCursor),
-    getHome("/home"),
-    getPages(),
-  ]);
+  const [cmsHome, navData] = await Promise.all([getHome("/home"), getPages()]);
+  const homePage = cmsHome?.homePage ?? homeFallback;
 
   const navHits: NavLink[] = (navData?.edges ?? []).map((hit: { node: NavLink }) => hit.node);
   const mainLinks = {
-    portfolio: navHits.find((hit) => hit.title === "Portfolio."),
-    about: navHits.find((hit) => hit.title === "about me."),
-    contact: navHits.find((hit) => hit.title === "contact."),
+    portfolio:
+      navHits.find((hit) => hit.title === "Portfolio.") ??
+      ({ id: "fallback-portfolio", uri: "/", title: "Portfolio." } as NavLink),
+    about:
+      navHits.find((hit) => hit.title === "about me.") ??
+      ({ id: "fallback-about", uri: "/about/", title: "about me." } as NavLink),
+    contact:
+      navHits.find((hit) => hit.title === "contact.") ??
+      ({ id: "fallback-contact", uri: "/contact/", title: "contact." } as NavLink),
   };
-  const otherLinks = navHits.filter(
-    (hit) => !["Portfolio.", "about me.", "contact."].includes(hit.title),
-  );
 
-  const heroTitle =
-    homeData?.homePage?.homePageTitle?.replace("fueled", "fueled<br />") ?? "Creative work";
+  const heroTitle = homePage.homePageTitle.replace("fueled", "fueled<br />");
 
   return (
     <main className="page-shell">
       <nav className="nav-container" aria-label="Primary navigation">
         <div className="nav-left">
-          {mainLinks.portfolio && (
-            <a key={mainLinks.portfolio.id} href={mainLinks.portfolio.uri} className="link">
-              {mainLinks.portfolio.title}
-            </a>
-          )}
+          <a key={mainLinks.portfolio.id} href={mainLinks.portfolio.uri} className="link">
+            {mainLinks.portfolio.title}
+          </a>
         </div>
         <div className="nav-right">
-          {mainLinks.about && (
-            <a key={mainLinks.about.id} href={mainLinks.about.uri} className="link">
-              {mainLinks.about.title}
-            </a>
-          )}
-          {mainLinks.contact && (
-            <a key={mainLinks.contact.id} href={mainLinks.contact.uri} className="link">
-              {mainLinks.contact.title}
-            </a>
-          )}
+          <a key={mainLinks.about.id} href={mainLinks.about.uri} className="link">
+            {mainLinks.about.title}
+          </a>
+          <a key={mainLinks.contact.id} href={mainLinks.contact.uri} className="link">
+            {mainLinks.contact.title}
+          </a>
         </div>
       </nav>
 
       <header className="hero">
-        <p className="hero-kicker">{homeData?.homePage?.presentingText}</p>
+        <p className="hero-kicker">{homePage.presentingText}</p>
         <h1
           className="hero-title"
           dangerouslySetInnerHTML={{
             __html: heroTitle,
           }}
         />
-        {homeData?.homePage?.buttonUrl && homeData?.homePage?.buttonText && (
-          <a href={homeData.homePage.buttonUrl} className="btn">
-            {homeData.homePage.buttonText}
+        {homePage.buttonUrl && homePage.buttonText && (
+          <a href={homePage.buttonUrl} className="btn">
+            {homePage.buttonText}
           </a>
         )}
       </header>
 
-      <section className="chip-links" aria-label="Project categories">
-        {otherLinks.map((link) => (
-          <a key={link.id} href={link.uri} className="chip-link">
-            {link.title}
-          </a>
+      <section className="category-links topic-row" aria-label="Filter projects by topic">
+        <Link
+          href="/"
+          className={`topic-pill category-link ${!activeCategory ? "topic-pill-active" : ""}`}
+        >
+          All
+        </Link>
+        {projectCategories.map((category) => (
+          <Link
+            key={category}
+            href={`/?category=${encodeURIComponent(category)}`}
+            className={`topic-pill category-link ${
+              activeCategory === category ? "topic-pill-active" : ""
+            }`}
+          >
+            {category}
+          </Link>
         ))}
       </section>
 
       <section className="posts-grid" aria-label="Project list">
-        {(posts as Post[]).map((post) => {
-          const imageUrl = post.featuredImage?.node?.mediaItemUrl;
-          return (
-            <Link key={post.id} href={`/projects/${post.slug}`} className="post-card">
-              <div className="post-card-media">
-                {imageUrl ? (
-                  <Image
-                    src={imageUrl}
-                    alt={post.featuredImage?.node?.altText || post.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  />
-                ) : (
-                  <div className="post-card-fallback">No preview available</div>
-                )}
-              </div>
-              <div className="post-info">
-                <h2 className="post-title">{post.title}</h2>
-                {post.PostInfo?.subtitle && <p className="post-subtitle">{post.PostInfo.subtitle}</p>}
-              </div>
+        {showcaseProjects.map((project) => (
+          <article key={project.slug} className="post-card showcase-card">
+            <Link href={`/work/${project.slug}`} className="post-card-media image-container">
+              <ProjectThumbnail
+                src={project.thumbnailUrl}
+                alt={`${project.name} thumbnail`}
+              />
             </Link>
-          );
-        })}
-        {(!posts || (posts as Post[]).length === 0) && (
-          <div className="post-card-fallback-panel">
-            Portfolio items are currently unavailable. Please check the CMS connection.
-          </div>
-        )}
+            <div className="post-info">
+              <Link href={`/work/${project.slug}`}>
+                <h2 className="post-title">{project.name}</h2>
+              </Link>
+              <p className="post-subtitle">{project.summary}</p>
+              <div className="topic-row thumb-topics">
+                {project.categories.map((category) => (
+                  <span key={category} className="topic-pill topic-pill-static">
+                    {category}
+                  </span>
+                ))}
+              </div>
+              <Link href={`/work/${project.slug}`} className="case-study-link">
+                Read case study →
+              </Link>
+            </div>
+          </article>
+        ))}
       </section>
 
-      <PaginationControls
-        hasNextPage={Boolean(pageInfo?.hasNextPage)}
-        hasPrevPage={page > 1}
-        endCursor={pageInfo?.endCursor ?? ""}
-        startCursor={pageInfo?.startCursor ?? ""}
-      />
-
       <section className="freelance-section">
-        <p className="freelance-title">{homeData?.homePage?.freelanceProjects?.freelanceTitle}</p>
+        <p className="freelance-title">{homePage.freelanceProjects.freelanceTitle}</p>
         <h3 className="freelance-description">
-          {homeData?.homePage?.freelanceProjects?.freelanceDescription}
+          {homePage.freelanceProjects.freelanceDescription}
         </h3>
-        {homeData?.homePage?.freelanceProjects?.freelanceProjectsLink?.url && (
-          <a
-            href={homeData.homePage.freelanceProjects.freelanceProjectsLink.url}
-            className="btn"
-          >
-            {homeData?.homePage?.freelanceProjects?.freelanceProjectsButton || "Get in touch"}
-          </a>
-        )}
+        <a
+          href={homePage.freelanceProjects.freelanceContactUrl}
+          className="btn"
+        >
+          {homePage.freelanceProjects.freelanceProjectsButton}
+        </a>
+      </section>
+
+      <section className="repos-section" aria-label="Original repositories from 2023">
+        <h3 className="repos-heading">Original repos from Nov 2023</h3>
+        <div className="topic-row">
+          {originReposNov2023.map((repo) => (
+            <a
+              key={repo.name}
+              href={repo.url}
+              target="_blank"
+              rel="noreferrer"
+              className="repo-pill"
+            >
+              {repo.name}
+            </a>
+          ))}
+        </div>
       </section>
 
       <footer className="site-footer">

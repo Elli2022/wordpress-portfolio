@@ -1,11 +1,11 @@
 import WP from "../wp";
 
-export default async function getAll(uri: string) {
+export default async function getAll(uri: string = "/all") {
   try {
     const res = await WP(
       `
-        query getAll {
-            page(id: "/all", idType: URI) {
+        query getAll($uri: ID!) {
+            page(id: $uri, idType: URI) {
               content
               id
               allPage {

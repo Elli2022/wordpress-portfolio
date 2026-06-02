@@ -1,0 +1,35 @@
+{
+  "key": "group_all_page",
+  "title": "All Page",
+  "fields": [
+    {
+      "key": "field_all_page_title",
+      "label": "All Page Title",
+      "name": "allPageTitle",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "allPageTitle"
+    },
+    {
+      "key": "field_all_orkar_inte_mer",
+      "label": "Orkar Inte Mer",
+      "name": "orkarInteMer",
+      "type": "text",
+      "show_in_graphql": 1,
+      "graphql_field_name": "orkarInteMer"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page",
+        "operator": "==",
+        "value": "all"
+      }
+    ]
+  ],
+  "active": true,
+  "show_in_graphql": 1,
+  "graphql_field_name": "allPage",
+  "graphql_types": ["Page"]
+}

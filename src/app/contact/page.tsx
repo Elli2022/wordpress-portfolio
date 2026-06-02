@@ -4,14 +4,15 @@ import { contactFallback } from "@/lib/fallback-content";
 import SiteShell from "../components/SiteShell";
 import CmsHtml from "../components/CmsHtml";
 
-export default async function All() {
-  const allData = await getAll("/all");
+export default async function Contact() {
+  const contactData = await getAll("/contact");
   const { portfolio, about, contact } = await getMainNavLinks();
 
-  const title = allData?.allPage?.allPageTitle ?? contactFallback.allPageTitle;
+  const title =
+    contactData?.allPage?.allPageTitle ?? contactFallback.allPageTitle;
   const subtitle =
-    allData?.allPage?.orkarInteMer ?? contactFallback.orkarInteMer;
-  const content = allData?.content ?? contactFallback.content;
+    contactData?.allPage?.orkarInteMer ?? contactFallback.orkarInteMer;
+  const content = contactData?.content ?? contactFallback.content;
 
   return (
     <SiteShell portfolioLink={portfolio} aboutLink={about} contactLink={contact}>
@@ -36,11 +37,9 @@ export default async function All() {
           </a>
           <a
             href="https://elli-wordpress-portfolio.vercel.app"
-            target="_blank"
-            rel="noreferrer"
             className="btn btn-secondary"
           >
-            Live portfolio
+            Portfolio home
           </a>
         </div>
       </section>

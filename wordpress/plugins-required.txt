@@ -1,0 +1,6 @@
+# Install these from wp-admin: Plugins -> Add New (search by name)
+# All are free on wordpress.org
+
+wp-graphql
+advanced-custom-fields
+wpgraphql-acf
