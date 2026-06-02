@@ -1,3 +1,8 @@
+import {
+  buildProjectScreenshots,
+  getProjectImageSources,
+} from "@/lib/project-images";
+
 export type ProjectCategory =
   | "React"
   | "Next.js"
@@ -7,7 +12,7 @@ export type ProjectCategory =
   | "UI/UX";
 
 export type ProjectScreenshot = {
-  src: string;
+  sources: string[];
   label: string;
 };
 
@@ -26,23 +31,15 @@ export type PortfolioProject = {
   categories: ProjectCategory[];
   deployUrl: string;
   repoUrl: string;
-  thumbnailUrl: string;
+  thumbnailSources: string[];
   screenshots: ProjectScreenshot[];
 };
 
-const thumb = (url: string, width = 900, crop?: string) => {
-  const clean = url.replace(/\/$/, "");
-  const cropPath = crop ? `/crop/${crop}` : "";
-  return `https://image.thum.io/get/width/${width}${cropPath}/noanimate/${clean}`;
-};
-
-export function buildScreenshots(deployUrl: string): ProjectScreenshot[] {
-  const clean = deployUrl.replace(/\/$/, "");
-  return [
-    { src: thumb(clean, 1400), label: "Desktop landing view" },
-    { src: thumb(clean, 1200, "1200x700"), label: "Above-the-fold focus" },
-    { src: thumb(clean, 800, "800x1200"), label: "Mobile-style crop" },
-  ];
+function projectMedia(slug: string, deployUrl: string) {
+  return {
+    thumbnailSources: getProjectImageSources(slug, deployUrl, "thumb"),
+    screenshots: buildProjectScreenshots(slug, deployUrl),
+  };
 }
 
 export const projectCategories: ProjectCategory[] = [
@@ -83,8 +80,10 @@ export const portfolioProjects: PortfolioProject[] = [
     categories: ["WordPress", "Next.js", "Fullstack"],
     deployUrl: "https://elli-wordpress-portfolio.vercel.app",
     repoUrl: "https://github.com/Elli2022/wordpress-portfolio",
-    thumbnailUrl: thumb("https://elli-wordpress-portfolio.vercel.app"),
-    screenshots: buildScreenshots("https://elli-wordpress-portfolio.vercel.app"),
+    ...projectMedia(
+      "wordpress-portfolio-headless",
+      "https://elli-wordpress-portfolio.vercel.app"
+    ),
   },
   {
     slug: "pokemon-search-app",
@@ -113,8 +112,10 @@ export const portfolioProjects: PortfolioProject[] = [
     categories: ["React", "JavaScript", "Fullstack"],
     deployUrl: "https://pokemon-search-application.netlify.app",
     repoUrl: "https://github.com/Elli2022/pokemon-search-app",
-    thumbnailUrl: thumb("https://pokemon-search-application.netlify.app"),
-    screenshots: buildScreenshots("https://pokemon-search-application.netlify.app"),
+    ...projectMedia(
+      "pokemon-search-app",
+      "https://pokemon-search-application.netlify.app"
+    ),
   },
   {
     slug: "advokatbyra-site",
@@ -143,8 +144,7 @@ export const portfolioProjects: PortfolioProject[] = [
     categories: ["JavaScript", "UI/UX"],
     deployUrl: "https://advokatbyra.netlify.app/",
     repoUrl: "https://github.com/Elli2022/w-advokatbyra-site",
-    thumbnailUrl: thumb("https://advokatbyra.netlify.app/"),
-    screenshots: buildScreenshots("https://advokatbyra.netlify.app/"),
+    ...projectMedia("advokatbyra-site", "https://advokatbyra.netlify.app/"),
   },
   {
     slug: "nextjs-auth-blog-modernized",
@@ -173,8 +173,10 @@ export const portfolioProjects: PortfolioProject[] = [
     categories: ["Next.js", "React", "Fullstack"],
     deployUrl: "https://my-nextjs-project-modernized.netlify.app",
     repoUrl: "https://github.com/Elli2022/nextjs-auth-blog-modernized",
-    thumbnailUrl: thumb("https://my-nextjs-project-modernized.netlify.app"),
-    screenshots: buildScreenshots("https://my-nextjs-project-modernized.netlify.app"),
+    ...projectMedia(
+      "nextjs-auth-blog-modernized",
+      "https://my-nextjs-project-modernized.netlify.app"
+    ),
   },
   {
     slug: "auth-blog-platform",
@@ -203,8 +205,7 @@ export const portfolioProjects: PortfolioProject[] = [
     categories: ["Next.js", "React", "Fullstack"],
     deployUrl: "https://auth-blog-platform.netlify.app",
     repoUrl: "https://github.com/Elli2022/auth-blog-platform",
-    thumbnailUrl: thumb("https://auth-blog-platform.netlify.app"),
-    screenshots: buildScreenshots("https://auth-blog-platform.netlify.app"),
+    ...projectMedia("auth-blog-platform", "https://auth-blog-platform.netlify.app"),
   },
   {
     slug: "calculator-app",
@@ -233,8 +234,10 @@ export const portfolioProjects: PortfolioProject[] = [
     categories: ["JavaScript", "React"],
     deployUrl: "https://calculator-app-elli2022.netlify.app",
     repoUrl: "https://github.com/Elli2022/calculator-app",
-    thumbnailUrl: thumb("https://calculator-app-elli2022.netlify.app"),
-    screenshots: buildScreenshots("https://calculator-app-elli2022.netlify.app"),
+    ...projectMedia(
+      "calculator-app",
+      "https://calculator-app-elli2022.netlify.app"
+    ),
   },
   {
     slug: "nic-cage-snacks-shop",
@@ -263,8 +266,7 @@ export const portfolioProjects: PortfolioProject[] = [
     categories: ["React", "JavaScript", "UI/UX"],
     deployUrl: "https://nic-cage-snacks.netlify.app",
     repoUrl: "https://github.com/Elli2022/nic-cage-snacks-shop",
-    thumbnailUrl: thumb("https://nic-cage-snacks.netlify.app"),
-    screenshots: buildScreenshots("https://nic-cage-snacks.netlify.app"),
+    ...projectMedia("nic-cage-snacks-shop", "https://nic-cage-snacks.netlify.app"),
   },
 ];
 

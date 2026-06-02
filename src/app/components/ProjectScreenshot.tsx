@@ -1,30 +1,24 @@
 "use client";
 
-import { useState } from "react";
+import RobustImage from "./RobustImage";
 
 type ProjectScreenshotProps = {
-  src: string;
+  sources: string[];
   alt: string;
   label: string;
   href: string;
 };
 
 export default function ProjectScreenshot({
-  src,
+  sources,
   alt,
   label,
   href,
 }: ProjectScreenshotProps) {
-  const [imgSrc, setImgSrc] = useState(src);
-
   return (
     <figure className="screenshot-figure">
       <a href={href} target="_blank" rel="noreferrer" className="screenshot-link">
-        <img
-          src={imgSrc}
-          alt={alt}
-          onError={() => setImgSrc("/images/screenshot-placeholder.svg")}
-        />
+        <RobustImage sources={sources} alt={alt} />
       </a>
       <figcaption>{label}</figcaption>
     </figure>

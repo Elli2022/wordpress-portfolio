@@ -49,6 +49,18 @@ All changes were **reviewed, run locally, and verified** before shipping — the
 ### Home page
 ![Home page screenshot](./public/screenshots/homepage.png)
 
+## Project screenshots (robust thumbnails)
+
+Each project stores **local PNG captures** under `public/screenshots/projects/[slug]/` (desktop, mobile, thumb).
+
+Regenerate after deploy URL changes:
+
+```bash
+npm run screenshots
+```
+
+The UI falls back to WordPress mShots → thum.io → placeholder if a local file is missing.
+
 ## Local development
 
 ```bash

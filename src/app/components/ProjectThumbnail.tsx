@@ -1,20 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import RobustImage from "./RobustImage";
 
 type ProjectThumbnailProps = {
-  src: string;
+  sources: string[];
   alt: string;
 };
 
-export default function ProjectThumbnail({ src, alt }: ProjectThumbnailProps) {
-  const [imgSrc, setImgSrc] = useState(src);
-
-  return (
-    <img
-      src={imgSrc}
-      alt={alt}
-      onError={() => setImgSrc("/images/screenshot-placeholder.svg")}
-    />
-  );
+export default function ProjectThumbnail({ sources, alt }: ProjectThumbnailProps) {
+  return <RobustImage sources={sources} alt={alt} />;
 }

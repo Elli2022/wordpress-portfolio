@@ -111,10 +111,10 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
         {showcaseProjects.map((project) => (
           <article key={project.slug} className="post-card showcase-card">
             <Link href={`/work/${project.slug}`} className="post-card-media image-container">
-              <ProjectThumbnail
-                src={project.thumbnailUrl}
-                alt={`${project.name} thumbnail`}
-              />
+                <ProjectThumbnail
+                  sources={project.thumbnailSources}
+                  alt={`${project.name} thumbnail`}
+                />
             </Link>
             <div className="post-info">
               <Link href={`/work/${project.slug}`}>

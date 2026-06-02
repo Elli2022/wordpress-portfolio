@@ -104,7 +104,7 @@ export default async function WorkProjectPage({
             {project.screenshots.map((shot) => (
               <ProjectScreenshot
                 key={shot.label}
-                src={shot.src}
+                sources={shot.sources}
                 alt={`${project.name} — ${shot.label}`}
                 label={shot.label}
                 href={project.deployUrl}
