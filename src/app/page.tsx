@@ -26,6 +26,18 @@ function getParam(searchParams: SearchParams, key: string, fallback = ""): strin
   return value ?? fallback;
 }
 
+/** CMS may still point at legacy /projects/ or #posts — both should scroll to the grid. */
+function normalizeExploreWorksUrl(url: string) {
+  const trimmed = url.trim();
+  if (!trimmed || trimmed === "/projects" || trimmed === "/projects/") {
+    return "#projects";
+  }
+  if (trimmed === "#posts" || trimmed === "/posts" || trimmed === "/posts/") {
+    return "#projects";
+  }
+  return trimmed;
+}
+
 export default async function Home({ searchParams }: { searchParams: SearchParams }) {
   const activeCategory = getParam(searchParams, "category");
   const showcaseProjects = getProjectsByCategory(activeCategory || undefined);
@@ -76,13 +88,15 @@ export default async function Home({ searchParams }: { searchParams: SearchParam
           }}
         />
         {homePage.buttonUrl && homePage.buttonText && (
-          <a href={homePage.buttonUrl} className="btn">
+          <a href={normalizeExploreWorksUrl(homePage.buttonUrl)} className="btn">
             {homePage.buttonText}
           </a>
         )}
       </header>
 
-      <ProjectCarousel slides={carouselSlides} />
+      <div id="projects">
+        <ProjectCarousel slides={carouselSlides} />
+      </div>
 
       <section className="category-links topic-row" aria-label="Filter projects by topic">
         <Link

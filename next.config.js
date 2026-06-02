@@ -8,13 +8,26 @@ const nextConfig = {
         },
       ],
     },
+    async redirects() {
+      return [
+        {
+          source: '/projects',
+          destination: '/#projects',
+          permanent: false,
+        },
+        {
+          source: '/posts',
+          destination: '/#projects',
+          permanent: false,
+        },
+      ];
+    },
     async rewrites() {
       return [
         {
           source: '/home',
-          destination: '/', // Assuming that the 'page.tsx' content should be at the root
+          destination: '/',
         },
-        // ...other rewrites if necessary
       ];
     },
     // ...other Next.js config options

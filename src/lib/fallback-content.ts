@@ -2,7 +2,7 @@ export const homeFallback = {
   presentingText: "Multidisciplinary designer",
   homePageTitle: "Driven by passion, fueled by curiosity",
   buttonText: "Explore works",
-  buttonUrl: "#posts",
+  buttonUrl: "#projects",
   freelanceProjects: {
     freelanceTitle: "Available for freelance projects",
     freelanceDescription: "Let us build something meaningful together.",
