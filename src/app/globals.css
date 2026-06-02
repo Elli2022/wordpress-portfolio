@@ -524,6 +524,17 @@ body {
   background: #374151;
 }
 
+.btn-disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+.case-note {
+  margin-top: 0.85rem !important;
+  color: #6b7280 !important;
+  font-size: 0.9rem;
+}
+
 .screenshot-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));

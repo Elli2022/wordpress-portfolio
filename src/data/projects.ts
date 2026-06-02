@@ -30,6 +30,8 @@ export type PortfolioProject = {
   highlights: string[];
   categories: ProjectCategory[];
   deployUrl: string;
+  liveAvailable?: boolean;
+  liveStatusNote?: string;
   repoUrl: string;
   thumbnailSources: string[];
   screenshots: ProjectScreenshot[];
@@ -142,9 +144,12 @@ export const portfolioProjects: PortfolioProject[] = [
       "Mobile-friendly layout",
     ],
     categories: ["JavaScript", "UI/UX"],
-    deployUrl: "https://advokatbyra.netlify.app/",
+    deployUrl: "https://w-advokatbyra-malmo.netlify.app",
     repoUrl: "https://github.com/Elli2022/w-advokatbyra-site",
-    ...projectMedia("advokatbyra-site", "https://advokatbyra.netlify.app/"),
+    ...projectMedia(
+      "advokatbyra-site",
+      "https://w-advokatbyra-malmo.netlify.app"
+    ),
   },
   {
     slug: "nextjs-auth-blog-modernized",

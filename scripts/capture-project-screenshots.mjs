@@ -15,7 +15,10 @@ const projects = [
     slug: "pokemon-search-app",
     deployUrl: "https://pokemon-search-application.netlify.app",
   },
-  { slug: "advokatbyra-site", deployUrl: "https://advokatbyra.netlify.app/" },
+  {
+    slug: "advokatbyra-site",
+    deployUrl: "https://w-advokatbyra-malmo.netlify.app",
+  },
   {
     slug: "nextjs-auth-blog-modernized",
     deployUrl: "https://my-nextjs-project-modernized.netlify.app",

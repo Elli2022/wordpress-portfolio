@@ -18,6 +18,7 @@ export default async function WorkProjectPage({
   if (!project) notFound();
 
   const { portfolio, about, contact } = await getMainNavLinks();
+  const liveTarget = project.liveAvailable === false ? project.repoUrl : project.deployUrl;
 
   return (
     <SiteShell portfolioLink={portfolio} aboutLink={about} contactLink={contact}>
@@ -76,14 +77,20 @@ export default async function WorkProjectPage({
           </div>
 
           <div className="case-actions">
-            <a
-              href={project.deployUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="btn"
-            >
-              View live project
-            </a>
+            {project.liveAvailable === false ? (
+              <span className="btn btn-disabled" aria-disabled="true">
+                Live temporarily offline
+              </span>
+            ) : (
+              <a
+                href={project.deployUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="btn"
+              >
+                View live project
+              </a>
+            )}
             <a
               href={project.repoUrl}
               target="_blank"
@@ -93,6 +100,9 @@ export default async function WorkProjectPage({
               View GitHub repo
             </a>
           </div>
+          {project.liveStatusNote ? (
+            <p className="case-note">{project.liveStatusNote}</p>
+          ) : null}
         </article>
 
         <article className="case-study-card">
@@ -107,7 +117,7 @@ export default async function WorkProjectPage({
                 sources={shot.sources}
                 alt={`${project.name} — ${shot.label}`}
                 label={shot.label}
-                href={project.deployUrl}
+                href={liveTarget}
               />
             ))}
           </div>
