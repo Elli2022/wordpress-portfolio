@@ -1,14 +1,12 @@
 //src/app/about/page.tsx
-import getAbout from "@/pages/queries/getAbout";
-import getPages from "@/pages/queries/getPages";
+import getAbout from "@/lib/queries/getAbout";
+import getPages from "@/lib/queries/getPages";
 
 export default async function About() {
-  console.log("Fetching about page data...");
   const aboutData = await getAbout("/about");
   const navlinks = await getPages();
-  const navHits = Object.values(navlinks.edges).map((hit: any) => hit.node);
-
-  console.log("Fetched data:", aboutData);
+  const navHits = Object.values(navlinks?.edges ?? {}).map((hit: any) => hit.node);
+  const deployUrl = process.env.NEXT_PUBLIC_DEPLOY_URL || "http://localhost:3000";
 
   const specialLink = navHits.find((hit) => hit.title === "Special Link");
 
@@ -29,6 +27,12 @@ export default async function About() {
       </header>
       <div className="text-center">
         <p>{aboutData?.content}</p>
+        <p className="mt-4 text-sm">
+          Live deploy:{" "}
+          <a className="underline" href={deployUrl} target="_blank" rel="noreferrer">
+            {deployUrl}
+          </a>
+        </p>
         {specialLink && (
           <a href={specialLink.uri} className="btn">
             {specialLink.title}

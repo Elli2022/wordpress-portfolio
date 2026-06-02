@@ -1,6 +1,4 @@
-//src/lib/queries/getHome.tsx
-import WP from "../api/wp"; // Om din WP-funktion är korrekt exporterad från "../api/wp"
-
+import WP from "../wp";
 
 export default async function getHome(uri: string) {
   try {
@@ -34,7 +32,7 @@ export default async function getHome(uri: string) {
         projectUrl
         projectImage {
           mediaItemUrl
-        } 
+        }
       }
       freelanceProjects {
         freelanceDescription
@@ -47,10 +45,10 @@ export default async function getHome(uri: string) {
       }
       homePageTitle
       presentingText
-      
+
     }
     uri
-    
+
   }
 }
         `,

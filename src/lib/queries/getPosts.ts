@@ -1,5 +1,4 @@
-// src/pages/queries/getPosts.tsx
-import WP from "../api/wp";
+import WP from "../wp";
 
 export default async function getPosts(
   page = 1,
@@ -17,12 +16,6 @@ export default async function getPosts(
     } else {
       queryArgs = { first: perPage };
     }
-
-    console.log("Page:", page);
-    console.log("PerPage:", perPage);
-    console.log("AfterCursor:", afterCursor);
-    console.log("BeforeCursor:", beforeCursor);
-    console.log("Query Arguments:", queryArgs);
 
     const resPost = await WP(
       `query GetPosts($after: String, $first: Int, $last: Int, $before: String) {

@@ -1,14 +1,11 @@
 //src/app/all/page.tsx
-import getAll from "@/pages/queries/getAll";
-import getPages from "@/pages/queries/getPages";
+import getAll from "@/lib/queries/getAll";
+import getPages from "@/lib/queries/getPages";
 
 export default async function All() {
-  console.log("Fetching all page data...");
-  const allData = await getAll("/all"); // Changed the variable name from aboutData to allData
+  const allData = await getAll("/all");
   const navlinks = await getPages();
-  const navHits = Object.values(navlinks.edges).map((hit: any) => hit.node);
-
-  console.log("Fetched data:", allData);
+  const navHits = Object.values(navlinks?.edges ?? {}).map((hit: any) => hit.node);
 
   // This line may not be necessary unless you have a specific link named "Special Link"
   // const specialLink = navHits.find(hit => hit.title === "Special Link");
@@ -17,7 +14,7 @@ export default async function All() {
     <main className="min-h-screen bg-gradient-to-b from-[#d6dbdc] to-white text-black p-24">
       <nav className="flex justify-between items-center">
         {navHits.map((hit: any) => (
-          <a href={hit.uri} className="link">
+          <a key={hit.id} href={hit.uri} className="link">
             {hit.title}
           </a>
         ))}

@@ -1,10 +1,8 @@
-//src/pages/queries/getPages.tsx
-import WP from "../api/wp";
+import WP from "../wp";
 
 export default async function getPages() {
   try {
     const resPages = await WP(`
-   
    query getPages {
     pages {
       edges {

@@ -1,9 +1,9 @@
 // src/app/page.tsx
 import React from "react";
 import Link from "next/link";
-import getHome from "@/pages/queries/getHome";
-import getPages from "@/pages/queries/getPages";
-import getPosts from "@/pages/queries/getPosts";
+import getHome from "@/lib/queries/getHome";
+import getPages from "@/lib/queries/getPages";
+import getPosts from "@/lib/queries/getPosts";
 import PaginationControls from "./components/PaginationControls";
 
 interface Post {

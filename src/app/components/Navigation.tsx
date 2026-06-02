@@ -8,9 +8,9 @@ interface NavLink {
 }
 
 interface NavigationProps {
-  portfolioLink: NavLink;
-  aboutLink: NavLink;
-  contactLink: NavLink;
+  portfolioLink?: NavLink;
+  aboutLink?: NavLink;
+  contactLink?: NavLink;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ portfolioLink, aboutLink, contactLink }) => {
@@ -18,19 +18,25 @@ const Navigation: React.FC<NavigationProps> = ({ portfolioLink, aboutLink, conta
     <nav className="nav-container">
       {/* Vänster länk */}
       <div className="nav-left">
-        <a key={portfolioLink.id} href={portfolioLink.uri} className="link">
-          {portfolioLink.title}
-        </a>
+        {portfolioLink && (
+          <a href={portfolioLink.uri} className="link">
+            {portfolioLink.title}
+          </a>
+        )}
       </div>
 
       {/* Höger länkar */}
       <div className="nav-right">
-        <a key={aboutLink.id} href={aboutLink.uri} className="link">
-          {aboutLink.title}
-        </a>
-        <a key={contactLink.id} href={contactLink.uri} className="link">
-          {contactLink.title}
-        </a>
+        {aboutLink && (
+          <a href={aboutLink.uri} className="link">
+            {aboutLink.title}
+          </a>
+        )}
+        {contactLink && (
+          <a href={contactLink.uri} className="link">
+            {contactLink.title}
+          </a>
+        )}
       </div>
     </nav>
   );

@@ -2,10 +2,11 @@
 
 
 import React from "react";
-import getPages from "@/pages/queries/getPages";
+import getPages from "@/lib/queries/getPages";
 import Navigation from "../../components/Navigation";
-import WP from "@/pages/api/wp";
-import getPost from "../../../pages/queries/getPost";
+import WP from "@/lib/wp";
+import getPost from "@/lib/queries/getPost";
+import { notFound } from "next/navigation";
 
 
 interface Post {
@@ -52,27 +53,17 @@ export async function generateStaticParams() {
       }
     }
   }`);
-  const paths: any = [];
+  const paths: Array<{ slugs: string }> = [];
   posts?.data?.posts?.edges?.map((post: any) => {
     if (post && post.node && post.node.slug) {
-      paths.push({ params: { slug: post.node.slug } });
+      paths.push({ slugs: post.node.slug });
     }
   });
 
   return paths;
 }
 
-// Define a global variable to store the post data
-let globalPostData: {
-  [x: string]: any;
-  title: string;
-};
-
 const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
-  console.log("Received slug:", params.slugs); // Logga mottagen slug
-  let globalPostData = null;
-  let additionalPostInfo = null;  // Definiera additionalPostInfo här
-
   // Hämta data från WP
   const resPost = await WP(`
     query GetPostBySlug($slug: String!) {
@@ -91,28 +82,14 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
     }`,
     { slug: params.slugs }
   );
-
-  console.log("WP Response:", resPost); // Logga svar från WP
-
-  if (resPost.data) {
-    globalPostData = resPost.data.postBy;
-    console.log("Global Post Data:", globalPostData); // Logga global post data
-  }
+  const globalPostData = resPost?.data?.postBy ?? null;
 
   // Hämta ytterligare data med getPost
   const additionalData = await getPost(params.slugs);
-
-  console.log("Additional Data Response:", additionalData); // Logga ytterligare data
-
-  if (additionalData && additionalData.data) {
-    additionalPostInfo = additionalData.data.post;  // Tilldela data till additionalPostInfo
-    console.log("Additional Post Info:", additionalPostInfo); // Logga ytterligare post info
-  }
-
-      console.log(additionalData.data.post.PostInfo.branding);
+  const postInfo = additionalData?.data?.postBy?.PostInfo ?? null;
 
   const navlinks = await getPages();
-  const navHits = navlinks.edges.map((edge: any) => edge.node);
+  const navHits = navlinks?.edges?.map((edge: any) => edge.node) ?? [];
   const mainLinks = {
     portfolio: navHits.find((hit: any) => hit.title === "Portfolio."),
     about: navHits.find((hit: any) => hit.title === "about me."),
@@ -120,7 +97,7 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
   };
 
   if (!globalPostData) {
-    return <div>Loading...</div>;
+    notFound();
   }
 
   // När data är hämtad, renderas sidan
@@ -141,13 +118,19 @@ const ProjectPage = async ({ params }: { params: { slugs: string } }) => {
     <div dangerouslySetInnerHTML={{ __html: globalPostData.content }} />
 
     <div>
-      <h2>{additionalData.data.post.PostInfo.branding}</h2>
-      <p>{additionalData.data.post.PostInfo.subtitle}</p>
-      <p>{additionalData.data.post.PostInfo.projectintrotext}</p>
-      <p>{additionalData.data.post.PostInfo.projectdescription}</p>
-      <p>{additionalData.data.post.PostInfo.clientheading}</p>
-      <p>{additionalData.data.post.PostInfo.date}</p>
-      <p>{additionalData.data.post.PostInfo.client}</p>
+      {postInfo ? (
+        <>
+          <h2>{postInfo.branding}</h2>
+          <p>{postInfo.subtitle}</p>
+          <p>{postInfo.projectintrotext}</p>
+          <p>{postInfo.projectdescription}</p>
+          <p>{postInfo.clientheading}</p>
+          <p>{postInfo.date}</p>
+          <p>{postInfo.client}</p>
+        </>
+      ) : (
+        <p>Project details are being updated in CMS.</p>
+      )}
     </div>
   </div>
   );
