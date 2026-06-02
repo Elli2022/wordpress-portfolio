@@ -4,10 +4,11 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   portfolioProjects,
-  projectCategories,
   type ProjectCategory,
   type PortfolioProject,
 } from "@/data/projects";
+import FilterCategory from "./FilterCategory";
+import PostsContainer from "./PostsContainer";
 import RobustImage from "./RobustImage";
 
 export type ShowcaseProject = Pick<
@@ -52,24 +53,23 @@ export default function ProjectShowcase({
     const step = getScrollStep(track);
     const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
     const index =
-      step > 0 ? Math.min(Math.round(track.scrollLeft / step), filtered.length - 1) : 0;
+      step > 0
+        ? Math.min(Math.round(track.scrollLeft / step), filtered.length - 1)
+        : 0;
 
     setPageIndex(Math.max(0, index));
     setCanScrollPrev(track.scrollLeft > 8);
     setCanScrollNext(track.scrollLeft < maxScroll - 8);
   }, [filtered.length]);
 
-  const scrollGallery = useCallback(
-    (direction: -1 | 1) => {
-      const track = trackRef.current;
-      if (!track) return;
-      track.scrollBy({
-        left: direction * getScrollStep(track),
-        behavior: "smooth",
-      });
-    },
-    []
-  );
+  const scrollGallery = useCallback((direction: -1 | 1) => {
+    const track = trackRef.current;
+    if (!track) return;
+    track.scrollBy({
+      left: direction * getScrollStep(track),
+      behavior: "smooth",
+    });
+  }, []);
 
   useEffect(() => {
     const track = trackRef.current;
@@ -102,32 +102,10 @@ export default function ProjectShowcase({
 
   return (
     <div className="project-showcase">
-      <section
-        className="category-links topic-row"
-        aria-label="Filter projects by topic"
-      >
-        <button
-          type="button"
-          className={`topic-pill category-link ${
-            activeCategory === null ? "topic-pill-active" : ""
-          }`}
-          onClick={() => setActiveCategory(null)}
-        >
-          All
-        </button>
-        {projectCategories.map((category) => (
-          <button
-            key={category}
-            type="button"
-            className={`topic-pill category-link ${
-              activeCategory === category ? "topic-pill-active" : ""
-            }`}
-            onClick={() => setActiveCategory(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </section>
+      <FilterCategory
+        activeCategory={activeCategory}
+        onCategoryChange={setActiveCategory}
+      />
 
       <section className="project-gallery" aria-label="Project gallery">
         <div className="gallery-viewport">
@@ -171,7 +149,9 @@ export default function ProjectShowcase({
                 <span aria-hidden>‹</span>
               </button>
               <span className="gallery-nav-counter" aria-live="polite">
-                <span className="gallery-nav-counter-current">{pageIndex + 1}</span>
+                <span className="gallery-nav-counter-current">
+                  {pageIndex + 1}
+                </span>
                 <span className="gallery-nav-counter-sep">/</span>
                 <span className="gallery-nav-counter-total">{total}</span>
               </span>
@@ -189,41 +169,7 @@ export default function ProjectShowcase({
         ) : null}
       </section>
 
-      <section className="posts-grid" aria-label="Project list">
-        {filtered.map((project) => (
-          <article key={project.slug} className="post-card showcase-card">
-            <Link
-              href={`/work/${project.slug}`}
-              className="post-card-media image-container"
-            >
-              <RobustImage
-                sources={project.thumbnailSources}
-                alt={`${project.name} thumbnail`}
-                className="gallery-card-image"
-              />
-            </Link>
-            <div className="post-info">
-              <Link href={`/work/${project.slug}`}>
-                <h2 className="post-title">{project.name}</h2>
-              </Link>
-              <p className="post-subtitle">{project.summary}</p>
-              <div className="topic-row thumb-topics">
-                {project.categories.map((category) => (
-                  <span
-                    key={category}
-                    className="topic-pill topic-pill-static"
-                  >
-                    {category}
-                  </span>
-                ))}
-              </div>
-              <Link href={`/work/${project.slug}`} className="case-study-link">
-                Read case study →
-              </Link>
-            </div>
-          </article>
-        ))}
-      </section>
+      <PostsContainer posts={filtered} />
     </div>
   );
 }

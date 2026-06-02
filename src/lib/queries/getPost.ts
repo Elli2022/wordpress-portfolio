@@ -1,6 +1,7 @@
 import WP from "../wp";
 
-type NullablePostInfo = {
+/** Fields exposed by `PostInfoCompat` in wordpress/mu-plugins/portfolio-cms.php */
+export type PostInfo = {
   branding?: string;
   subtitle?: string;
   projectintrotext?: string;
@@ -8,22 +9,41 @@ type NullablePostInfo = {
   clientheading?: string;
   date?: string;
   client?: string;
-} | null;
+};
+
+export type WpPostDetail = {
+  title: string;
+  content: string;
+  featuredImage?: {
+    node?: {
+      mediaItemUrl?: string;
+      altText?: string | null;
+    };
+  };
+  PostInfo?: PostInfo | null;
+};
 
 type GetPostResult = {
   data?: {
-    postBy?: {
-      PostInfo?: NullablePostInfo;
-      content?: string;
-    } | null;
+    post?: WpPostDetail | null;
   };
   errors?: Array<{ message: string }>;
 };
 
 async function getPost(slug: string): Promise<GetPostResult | null> {
+  const uri = slug.startsWith("/") ? slug : `/${slug}`;
+
   const query = `
-    query getPost($slug: String!) {
-      postBy(slug: $slug) {
+    query getPost($uri: ID!) {
+      post(id: $uri, idType: URI) {
+        title
+        content
+        featuredImage {
+          node {
+            mediaItemUrl
+            altText
+          }
+        }
         PostInfo {
           branding
           subtitle
@@ -33,18 +53,21 @@ async function getPost(slug: string): Promise<GetPostResult | null> {
           date
           client
         }
-        content
       }
     }
   `;
 
   try {
-    const data = await WP(query, { slug });
-    return data as GetPostResult;
+    const data = (await WP(query, { uri })) as GetPostResult;
+    return data;
   } catch (error) {
     console.error("Error fetching post:", error);
     return null;
   }
+}
+
+export function getPostInfoFromResult(result: GetPostResult | null) {
+  return result?.data?.post ?? null;
 }
 
 export default getPost;

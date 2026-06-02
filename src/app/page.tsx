@@ -1,7 +1,11 @@
 import getHome from "@/lib/queries/getHome";
 import getPages from "@/lib/queries/getPages";
 import Navigation from "./components/Navigation";
+import Header from "./components/Header";
+import ExploreButton from "./components/ExploreButton";
 import ProjectShowcase from "./components/ProjectShowcase";
+import FreelanceSection from "./components/FreelanceSection";
+import Footer from "./components/Footer";
 import { homeFallback } from "@/lib/fallback-content";
 
 interface NavLink {
@@ -10,7 +14,6 @@ interface NavLink {
   uri: string;
 }
 
-/** CMS may still point at legacy /projects/ or #posts — both should scroll to the grid. */
 function normalizeExploreWorksUrl(url: string) {
   const trimmed = url.trim();
   if (!trimmed || trimmed === "/projects" || trimmed === "/projects/") {
@@ -49,41 +52,30 @@ export default async function Home() {
         contactLink={mainLinks.contact}
       />
 
-      <header className="hero">
-        <p className="hero-kicker">{homePage.presentingText}</p>
-        <h1
-          className="hero-title"
-          dangerouslySetInnerHTML={{
-            __html: heroTitle,
-          }}
+      <Header
+        presentingText={homePage.presentingText}
+        titleHtml={heroTitle}
+      />
+
+      {homePage.buttonUrl && homePage.buttonText ? (
+        <ExploreButton
+          buttonText={homePage.buttonText}
+          buttonUrl={normalizeExploreWorksUrl(homePage.buttonUrl)}
         />
-        {homePage.buttonUrl && homePage.buttonText && (
-          <a href={normalizeExploreWorksUrl(homePage.buttonUrl)} className="btn">
-            {homePage.buttonText}
-          </a>
-        )}
-      </header>
+      ) : null}
 
       <div id="projects">
         <ProjectShowcase />
       </div>
 
-      <section className="freelance-section">
-        <p className="freelance-title">{homePage.freelanceProjects.freelanceTitle}</p>
-        <h3 className="freelance-description">
-          {homePage.freelanceProjects.freelanceDescription}
-        </h3>
-        <a
-          href={homePage.freelanceProjects.freelanceContactUrl}
-          className="btn"
-        >
-          {homePage.freelanceProjects.freelanceProjectsButton}
-        </a>
-      </section>
+      <FreelanceSection
+        freelanceTitle={homePage.freelanceProjects.freelanceTitle}
+        freelanceDescription={homePage.freelanceProjects.freelanceDescription}
+        freelanceContactUrl={homePage.freelanceProjects.freelanceContactUrl}
+        freelanceProjectsButton={homePage.freelanceProjects.freelanceProjectsButton}
+      />
 
-      <footer className="site-footer">
-        <p>© {new Date().getFullYear()} All rights reserved.</p>
-      </footer>
+      <Footer />
     </main>
   );
 }

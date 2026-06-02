@@ -949,3 +949,129 @@ body {
   color: var(--muted-text-color);
   text-align: center;
 }
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: var(--text-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+}
+
+.footer-sep {
+  color: var(--muted-text-color);
+}
+
+.project-post {
+  margin-top: 1.5rem;
+}
+
+.project-post-hero {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.project-post-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-post-body {
+  margin-top: 1.5rem;
+}
+
+.key-findings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.key-findings-card {
+  background: var(--pitch-background);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+}
+
+.key-findings-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.key-findings-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted-text-color);
+}
+
+.picture-block {
+  margin: 2rem 0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.picture-block-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.picture-block-cta {
+  padding: 1rem;
+  text-align: center;
+}
+
+.live-work-button {
+  display: inline-flex;
+  align-items: center;
+}
+
+.wp-project-meta {
+  margin-top: 1.5rem;
+}
+
+.wp-project-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.wp-project-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.wp-project-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.wp-project-closing {
+  text-align: center;
+  margin: 2rem 0;
+  font-size: 1.05rem;
+  color: var(--muted-text-color);
+}
