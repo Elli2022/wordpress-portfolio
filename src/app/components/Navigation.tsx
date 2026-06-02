@@ -21,19 +21,19 @@ const Navigation: React.FC<NavigationProps> = ({
     <nav className="nav-container" aria-label="Primary navigation">
       <div className="nav-left">
         {portfolioLink ? (
-          <a href={portfolioLink.uri} className="nav-pill">
+          <a href={portfolioLink.uri} className="link">
             {portfolioLink.title}
           </a>
         ) : null}
       </div>
       <div className="nav-right">
         {aboutLink ? (
-          <a href={aboutLink.uri} className="nav-pill">
+          <a href={aboutLink.uri} className="link">
             {aboutLink.title}
           </a>
         ) : null}
         {contactLink ? (
-          <a href={contactLink.uri} className="nav-pill">
+          <a href={contactLink.uri} className="link">
             {contactLink.title}
           </a>
         ) : null}
