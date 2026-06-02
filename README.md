@@ -13,6 +13,13 @@
 
 Capace-praktikportfolio (Malmö, nov 2023 – feb 2024), moderniserad 2026 — samma visuella identitet som originalet, stabil deploy, intervjuklara case studies och tydlighet kring AI-användning.
 
+**Ursprungsrepo (arkiverat):** [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) — all detaljerad dokumentation om komponenter, sidor och GraphQL är **sammanslagen** i detta repo, inget går förlorat:
+
+| Dokument | Innehåll |
+|----------|----------|
+| [docs/CODEBASE.md](./docs/CODEBASE.md) | Full referens: varje komponent, sidupplägg, queries, 2023→2026-skillnader |
+| [ARCHITECTURE.md](./ARCHITECTURE.md) | Kort teknisk karta och komponentmappning |
+
 ---
 
 ## Är den redo för produktion?
@@ -136,7 +143,7 @@ WordPress (ACF + WPGraphQL)  ──GraphQL──►  Next.js 14 (App Router)
 | Lager | Roll |
 |--------|------|
 | **WordPress** | Home hero, About/Contact när sidor finns i CMS |
-| **Next.js** | UI, topic pills, karusell, case studies på `/work/[slug]` |
+| **Next.js** | UI, topic pills, horisontellt galleri, case studies på `/work/[slug]` |
 | **`portfolio-cms.php`** | GraphQL-kompatibilitet för legacy-fält |
 | **`src/data/projects.ts`** | Projekt, copy, deploy-URL:er, screenshots |
 | **`src/lib/fallback-content.ts`** | About/Contact/Home när CMS saknar sidor |
@@ -144,7 +151,7 @@ WordPress (ACF + WPGraphQL)  ──GraphQL──►  Next.js 14 (App Router)
 ### Användarflöde
 
 ```
-Besökare → Startsida (filter / karusell)
+Besökare → Startsida (filter / galleri / grid)
          → /work/[slug]  (case study)
          → Live demo + GitHub
 ```
@@ -165,7 +172,7 @@ Besökare → Startsida (filter / karusell)
 
 ## Skärmdumpar
 
-Live startsida: [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app) (karusell, topic pills, projektgrid).
+Live startsida: [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app) (galleri, topic pills, projektgrid).
 
 ### Case study — Headless Portfolio (desktop)
 
@@ -263,7 +270,7 @@ NEXT_PUBLIC_DEPLOY_URL=https://elli-wordpress-portfolio.vercel.app
 
 | Route | Syfte |
 |--------|--------|
-| `/` | Karusell, topic pills, projektgrid |
+| `/` | Galleri, topic pills, projektgrid |
 | `/work/[slug]` | Case study (pitch, outcome, screenshots, live + GitHub) |
 | `/about` | Om mig (CMS eller fallback) |
 | `/contact` | Kontakt (CMS eller fallback) |
@@ -280,19 +287,23 @@ NEXT_PUBLIC_DEPLOY_URL=https://elli-wordpress-portfolio.vercel.app
 | `src/lib/fallback-content.ts` | About, Contact, Home-fallback |
 | `src/lib/wp.ts` | GraphQL-klient (returnerar `null` om nyckel saknas) |
 | `src/lib/project-images.ts` | Bildfallback-kedja |
-| `src/app/components/ProjectCarousel.tsx` | Startsida-karusell |
+| `src/app/components/ProjectShowcase.tsx` | Galleri, filter, grid på startsidan |
+| `docs/CODEBASE.md` | Detaljerad komponent- och sidreferens (från ursprungsrepo) |
 | `wordpress/mu-plugins/portfolio-cms.php` | CMS GraphQL-kompatibilitet |
 | `netlify.toml` | 301-redirect av gammal portfolio-Netlify → Vercel |
 
 ---
 
-## Originalrepos (nov 2023, Capace)
+## Relaterade repos (nov 2023, Capace)
 
-- [frontend-application](https://github.com/Elli2022/frontend-application)
-- [typescript-app-template](https://github.com/Elli2022/typescript-app-template)
-- [nextjs-auth-blog-modernized](https://github.com/Elli2022/nextjs-auth-blog-modernized)
-- [fullstack-application](https://github.com/Elli2022/fullstack-application)
-- [wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio) *(detta repo)*
+| Repo | Roll |
+|------|------|
+| **[wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio)** | **Kanoniskt** — kod, deploy, dokumentation |
+| [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) | Arkiverat — 2023-praktiksnapshot; pekar hit |
+| [frontend-application](https://github.com/Elli2022/frontend-application) | Tidigare praktik-frontend |
+| [typescript-app-template](https://github.com/Elli2022/typescript-app-template) | Mall |
+| [fullstack-application](https://github.com/Elli2022/fullstack-application) | Fullstack-övning |
+| [nextjs-auth-blog-modernized](https://github.com/Elli2022/nextjs-auth-blog-modernized) | Auth-blogg (demo) |
 
 ---
 

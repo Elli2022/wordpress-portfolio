@@ -1,6 +1,8 @@
 # Architecture — alignment with original portfolio
 
-This repo is the **2026 evolution** of [Elli2022/my-headless-wordpress-portfolio](https://github.com/Elli2022/my-headless-wordpress-portfolio) (Capace internship, Nov 2023 – Feb 2024). The stack and goals are the same; some routes and data sources were extended for production and interviews.
+This repo is the **2026 evolution** of [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) (Capace internship, Nov 2023 – Feb 2024). The stack and goals are the same; some routes and data sources were extended for production and interviews.
+
+**Full component- and page-level documentation (merged from the original README):** [docs/CODEBASE.md](./docs/CODEBASE.md)
 
 ## Tech stack (unchanged intent)
 
@@ -86,7 +88,7 @@ getHome + getPages
 
 ## Original reference repos
 
-- [my-headless-wordpress-portfolio](https://github.com/Elli2022/my-headless-wordpress-portfolio) — direct predecessor (same component names)
+- [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) — archived predecessor (same component names; docs consolidated here)
 - [frontend-application](https://github.com/Elli2022/frontend-application) — Nov 2023 internship frontend
 - [typescript-app-template](https://github.com/Elli2022/typescript-app-template)
 - [fullstack-application](https://github.com/Elli2022/fullstack-application)
