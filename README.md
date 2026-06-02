@@ -165,11 +165,7 @@ Besökare → Startsida (filter / karusell)
 
 ## Skärmdumpar
 
-### Startsida
-
-![Startsida — hero, karusell, topic pills och projektgrid](./public/screenshots/homepage.png)
-
-*Live:* [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app)
+Live startsida: [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app) (karusell, topic pills, projektgrid).
 
 ### Case study — Headless Portfolio (desktop)
 
