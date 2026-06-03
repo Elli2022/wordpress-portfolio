@@ -31,18 +31,6 @@ yarn-error.log*
 # vercel
 .vercel
 
-# netlify local build artifacts
-.netlify/
-
-# local wordpress bundles / duplicates
-wordpress-cms-files.zip
-wordpress-deploy/
-wp-content/
-
-# legacy snapshot — do not commit installed deps if explored locally
-legacy/**/node_modules/
-legacy/**/.next/
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts

@@ -18,7 +18,8 @@ Capace-praktikportfolio (Malmö, nov 2023 – feb 2024), moderniserad 2026 — s
 | Dokument | Innehåll |
 |----------|----------|
 | [docs/HISTORY.md](./docs/HISTORY.md) | Tidslinje v1 (2023) → v2 (2026), vad som bevarats |
-| [docs/history/README-My-Headless-Wordpress-Portfolio-2023.md](./docs/history/README-My-Headless-Wordpress-Portfolio-2023.md) | **Hela original-README** (ordagrant från 2023-repot) |
+| [legacy/my-headless-wordpress-portfolio-2023/](./legacy/my-headless-wordpress-portfolio-2023/) | **Hela 2023-kodbaser** (importerad från My-Headless-Wordpress-Portfolio) |
+| [docs/history/README-My-Headless-Wordpress-Portfolio-2023.md](./docs/history/README-My-Headless-Wordpress-Portfolio-2023.md) | **Hela original-README** (ordagrant) |
 | [docs/CODEBASE.md](./docs/CODEBASE.md) | Uppdaterad referens: komponenter, sidor, queries, 2023→2026 |
 | [ARCHITECTURE.md](./ARCHITECTURE.md) | Kort teknisk karta och komponentmappning |
 

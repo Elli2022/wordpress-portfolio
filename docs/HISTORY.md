@@ -13,10 +13,13 @@ One portfolio, two GitHub repositories over time. **All documentation and evolut
 
 | Artifact | Location |
 |----------|----------|
-| **Full original README (verbatim, 620 lines)** | [docs/history/README-My-Headless-Wordpress-Portfolio-2023.md](./history/README-My-Headless-Wordpress-Portfolio-2023.md) |
+| **Complete 2023 source code** | [legacy/my-headless-wordpress-portfolio-2023/](../legacy/my-headless-wordpress-portfolio-2023/) |
+| **Full original README (verbatim)** | [docs/history/README-My-Headless-Wordpress-Portfolio-2023.md](./history/README-My-Headless-Wordpress-Portfolio-2023.md) |
+| **Git commit log (export)** | [docs/history/git-log-2023.txt](./history/git-log-2023.txt) |
 | **2023 file structure** | [docs/history/STRUCTURE-2023.md](./history/STRUCTURE-2023.md) |
 | **Updated technical reference (2023 + 2026)** | [docs/CODEBASE.md](./CODEBASE.md) |
 | **Architecture map** | [ARCHITECTURE.md](../ARCHITECTURE.md) |
+| **About photo asset** | [public/images/portfolioFoto.jpg](../public/images/portfolioFoto.jpg) |
 
 Nothing from the original README was deleted — it is stored verbatim under `docs/history/`. [docs/CODEBASE.md](./CODEBASE.md) is the maintained guide with current paths and 2026 behavior.
 

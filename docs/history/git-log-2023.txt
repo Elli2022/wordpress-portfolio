@@ -1,0 +1,79 @@
+f2e5544 (HEAD -> main, origin/main, origin/Migration-from-wordpress-to-code, origin/HEAD) Update Footer.tsx
+87e2607 Update Footer.tsx
+0e1f017 Update Footer.tsx
+1ccef35 Update README.md
+a874f82 Update README.md
+f7fba82 Update README.md
+76040b0 Update README.md
+ac8df9e Update README.md
+f68f851 Update README.md
+fc3d27d Update README.md
+dc7a5f6 Update README.md
+50e64a9 Update README.md
+9cae6f4 Update README.md
+24a4870 Update README.md
+bf6fc2d Update README.md
+70417de Update README.md
+ddd85b3 Update README.md
+5ed8148 Update README.md
+ef5c925 Update README.md
+ca61451 Update README.md
+ef72629 Update README.md
+29f8dd2 Update README.md
+a7fac5f clean up some code
+a4ceb94 push
+d74f7b2 KeyFindings.tsx in own module
+bce113f refactored // src/pages/projects/[slugs]/page.tsx
+675ab8b fixed social media layout
+8705e17 (origin/Test) begun to devide into different modules
+92fb0e7 fixed some laout on about.tsx
+5ccf89e fixed portfolio-link now
+d3e58eb even better layout
+5578955 about.tsx with media links
+d7c1b6d fixed bugg rows={4} in // src/pages/contact.tsx
+373f70d best layout about.tsx page
+011591c better layout
+6d35285 best layout on about page so far
+c527d5b fixed modal.tsx for contact and about
+6e832e2 changed color:bg-[#1E415B]
+2dd5da8 almost done with contact site
+c1ac087 almost done with // src/pages/contact.tsx
+b2168fd fixed mappstructure
+6b6c1b6 styling: less space if no posts
+af55caa fixed styling on category links
+d19fdfc deleted types.tsx, fixed som styling in page.tsx
+016754e deleted src/app/all/All.tsx
+4a8a9b5 deleted getPostsByCategory.tsx
+547b5d8 deleted getAll.tsx
+3caccb6 deleted getAbout.tsx
+fa2b5fd deleted getCategories.tsx
+58fbdcc comments on ProjectPost.tsx
+9d2256a deleted endCursor and startCursor
+b4be226 comments on FilterCategory.tsx + hasPosts text
+bb60776 fixed a Header.tsx
+2741f85 refactored + more clean code + hasPosts
+4a86047 deleted homeProps
+ab89301 deleted otherLinks
+7ac0ea6 filtering posts with categories works
+44daf6c filter method works on categories problems render
+fc753b9 FilterCategory.tsx + getCategories.tsx
+08f5842 restyled pagination controls
+149f4d6 fix quite much styling
+6df9024 all css classes from globals.css to tailwind
+e156c40 fixed css layout
+4173af3 fixed some css
+92f883f fixed css close enough to figma mockup
+1013d8d styling fixed again on next project text
+c5dc5a8 styling bg-dark-kobolt-blue div
+9b4ba2d fixed capital letters on mail adress
+a77af88 layout fix
+dfba66a styled liveworkbutton
+f530898 styling
+d511b0c fixed some styling on key findings
+9564a68 fixed some layouts
+ac76aff footer own component + fixed layout on posts
+80908a2 fixed layout with three projects images
+a8cbcfc rendering in separate  ProjectPost.tsx
+badbf2f projectpage almost done
+e680131 added replace button
+f491a0a first push

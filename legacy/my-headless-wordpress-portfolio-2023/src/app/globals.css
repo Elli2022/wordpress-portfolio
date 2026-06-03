@@ -1,0 +1,29 @@
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Anpassa färgschemat enligt din design */
+:root {
+  --primary-color: #007bff; /* Blå */
+  --hover-color: #0056b3; /* Mörkare blå */
+  --text-color: #000; /* Svart */
+  --background-start: #d6dbdc; /* Ljusgrå */
+  --background-end: #fff; /* Vit */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

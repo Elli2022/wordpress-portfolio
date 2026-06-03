@@ -1,6 +1,8 @@
 # Repository structure — 2023 snapshot
 
-Frozen reference from [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) `main` (last push 2026-04-27). Preserved when consolidating into `wordpress-portfolio`.
+Frozen reference from [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) `main` (last push 2026-04-27).
+
+**Full runnable snapshot:** [legacy/my-headless-wordpress-portfolio-2023/](../../legacy/my-headless-wordpress-portfolio-2023/)
 
 ## Live URLs (historical)
 
