@@ -9,44 +9,35 @@ type PostsContainerProps = {
 export default function PostsContainer({ posts }: PostsContainerProps) {
   if (posts.length === 0) {
     return (
-      <p className="post-card-fallback-panel">
-        No projects in this category yet.
-      </p>
+      <div className="posts-grid-2023-empty">
+        <p>No projects found in this category.</p>
+      </div>
     );
   }
 
   return (
-    <section className="posts-grid" aria-label="Project list">
-      {posts.map((project) => (
-        <article key={project.slug} className="post-card showcase-card">
-          <Link
-            href={`/work/${project.slug}`}
-            className="post-card-media image-container"
-          >
-            <RobustImage
-              sources={project.thumbnailSources}
-              alt={`${project.name} thumbnail`}
-              className="gallery-card-image"
-            />
-          </Link>
-          <div className="post-info">
-            <Link href={`/work/${project.slug}`}>
-              <h2 className="post-title">{project.name}</h2>
-            </Link>
-            <p className="post-subtitle">{project.summary}</p>
-            <div className="topic-row thumb-topics">
-              {project.categories.map((category) => (
-                <span key={category} className="topic-pill topic-pill-static">
-                  {category}
-                </span>
-              ))}
-            </div>
-            <Link href={`/work/${project.slug}`} className="case-study-link">
-              Read case study →
+    <div className="posts-grid-2023" aria-label="Project grid">
+      {posts.map((project) => {
+        const label = project.categories[0]?.toUpperCase() ?? "PROJECT";
+
+        return (
+          <div key={project.slug} className="posts-grid-2023-item">
+            <Link href={`/work/${project.slug}`} className="posts-grid-2023-link">
+              <div className="posts-grid-2023-media">
+                <RobustImage
+                  sources={project.thumbnailSources}
+                  alt={project.name}
+                  className="posts-grid-2023-image"
+                />
+              </div>
+              <div className="posts-grid-2023-caption">
+                <p className="posts-grid-2023-label">{label}</p>
+                <h2 className="posts-grid-2023-title">{project.name}</h2>
+              </div>
             </Link>
           </div>
-        </article>
-      ))}
-    </section>
+        );
+      })}
+    </div>
   );
 }

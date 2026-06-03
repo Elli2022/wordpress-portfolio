@@ -16,6 +16,7 @@ export default function FreelanceSection({
   return (
     <section className="freelance-section freelance-2023">
       <p className="freelance-eyebrow">{freelanceTitle}</p>
+      <br />
       <h3 className="freelance-headline">{freelanceDescription}</h3>
       <a href={freelanceContactUrl} className="btn btn-freelance">
         {freelanceProjectsButton}

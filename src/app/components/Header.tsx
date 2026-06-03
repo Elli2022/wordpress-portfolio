@@ -10,7 +10,7 @@ export default function Header({ titleHtml, presentingText }: HeaderProps) {
     <header className="hero hero-2023">
       <p className="hero-kicker">{presentingText}</p>
       <h1
-        className="hero-title"
+        className="hero-title hero-title-2023"
         dangerouslySetInnerHTML={{ __html: titleHtml }}
       />
     </header>
