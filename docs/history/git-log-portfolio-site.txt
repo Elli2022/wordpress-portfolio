@@ -1,0 +1,22 @@
+9119d93 Merge pull request #5 from Elli2022/integrate-navbar
+902b679 Fixed some conflicts
+a7823a7 Update README.md before merging navbar/main
+8a84ef7 Merge pull request #4 from Elli2022/explore-works-button
+453daf7 Resolved all merge conflicts and finalized the merge
+266a08a Merge pull request #3 from Elli2022/integrate-rendering-ok
+2d40267 Integrated changes from portfolio-rendering-ok into integrate-rendering-ok
+aad422c Merge pull request #2 from Elli2022/integrate-main
+453c7e8 Merge remote-tracking branch 'rendering-ok/main' into integrate-main
+df80969 Merge pull request #1 from Elli2022/integrate-main
+c4d1eb9 wp-portfolio-main
+52439ba Merge remote-tracking branch 'portfolio-main/main' into integrate-main
+2999e24 first push
+2573e1b first push
+08b4a46 Update README.md
+22dd202 Update README.md
+f2a3407 EXPLORE WORKS Knapp renderas
+043aea2 lyckas rendera presenting text
+16e97f9 push
+32e7cee lyckades rendera pageTitle på sidan också
+ebf7c57 first push
+6409659 Initial commit from Create Next App

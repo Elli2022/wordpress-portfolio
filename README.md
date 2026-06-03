@@ -174,7 +174,8 @@ NEXT_PUBLIC_DEPLOY_URL=https://elli-wordpress-portfolio.vercel.app
 | Document | Contents |
 |----------|----------|
 | [docs/CODEBASE.md](./docs/CODEBASE.md) | Components, pages, GraphQL helpers, 2023→2026 mapping |
-| [docs/HISTORY.md](./docs/HISTORY.md) | Timeline and preserved artifacts |
+| [docs/HISTORY.md](./docs/HISTORY.md) | Timeline (v0 → v1 → v2) and preserved artifacts |
+| [docs/CONTACT-FORM-SETUP.md](./docs/CONTACT-FORM-SETUP.md) | Contact form → Gmail setup |
 | [legacy/](./legacy/) | Imported 2023 source tree |
 | [wordpress/README.md](./wordpress/README.md) | Local Docker CMS setup |
 | [wordpress/HOSTING.md](./wordpress/HOSTING.md) | Free WordPress.org hosting for GraphQL |

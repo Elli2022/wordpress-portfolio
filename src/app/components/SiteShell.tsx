@@ -16,7 +16,7 @@ export default function SiteShell({
   children,
 }: SiteShellProps) {
   return (
-    <main className="page-shell">
+    <main className="page-shell page-light">
       <div className="mx-auto max-w-5xl">
         <Navigation
           portfolioLink={portfolioLink}

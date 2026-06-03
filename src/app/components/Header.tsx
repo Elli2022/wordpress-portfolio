@@ -7,7 +7,7 @@ interface HeaderProps {
 
 export default function Header({ titleHtml, presentingText }: HeaderProps) {
   return (
-    <header className="hero">
+    <header className="hero hero-2023">
       <p className="hero-kicker">{presentingText}</p>
       <h1
         className="hero-title"

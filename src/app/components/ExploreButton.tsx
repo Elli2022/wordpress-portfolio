@@ -10,9 +10,9 @@ export default function ExploreButton({
   buttonUrl,
 }: ExploreButtonProps) {
   return (
-    <div className="text-center">
-      <a href={buttonUrl} className="btn">
-        {buttonText}
+    <div className="explore-wrap">
+      <a href={buttonUrl} className="btn btn-explore">
+        {buttonText} <span aria-hidden>→</span>
       </a>
     </div>
   );

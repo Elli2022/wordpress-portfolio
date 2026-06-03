@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",  // Detta säger att bas-URLen för import-sökvägar är projektroten
+    "paths": {
+      "@/*": ["src/*"]  // Detta matchar alla moduler som börjar med "@" till "src" mappen
+    },
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    // andra relevanta inställningar
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

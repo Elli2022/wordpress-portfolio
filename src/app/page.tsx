@@ -45,7 +45,7 @@ export default async function Home() {
   const heroTitle = homePage.homePageTitle.replace("fueled", "fueled<br />");
 
   return (
-    <main className="page-shell">
+    <main className="page-shell page-light">
       <Navigation
         portfolioLink={mainLinks.portfolio}
         aboutLink={mainLinks.about}

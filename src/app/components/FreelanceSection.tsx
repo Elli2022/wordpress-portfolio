@@ -14,10 +14,10 @@ export default function FreelanceSection({
   freelanceProjectsButton,
 }: FreelanceSectionProps) {
   return (
-    <section className="freelance-section">
-      <p className="freelance-title">{freelanceTitle}</p>
-      <h3 className="freelance-description">{freelanceDescription}</h3>
-      <a href={freelanceContactUrl} className="btn">
+    <section className="freelance-section freelance-2023">
+      <p className="freelance-eyebrow">{freelanceTitle}</p>
+      <h3 className="freelance-headline">{freelanceDescription}</h3>
+      <a href={freelanceContactUrl} className="btn btn-freelance">
         {freelanceProjectsButton}
       </a>
     </section>

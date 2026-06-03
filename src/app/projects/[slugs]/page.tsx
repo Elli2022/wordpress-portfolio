@@ -44,7 +44,7 @@ export default async function ProjectPage({
   const postInfo = post.PostInfo;
 
   return (
-    <main className="page-shell">
+    <main className="page-shell page-light">
       <Navigation
         portfolioLink={portfolio}
         aboutLink={about}

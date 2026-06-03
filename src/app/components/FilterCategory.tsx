@@ -15,7 +15,7 @@ export default function FilterCategory({
 }: FilterCategoryProps) {
   return (
     <section
-      className="category-links topic-row"
+      className="category-links topic-row filter-2023"
       aria-label="Filter projects by topic"
     >
       <button
