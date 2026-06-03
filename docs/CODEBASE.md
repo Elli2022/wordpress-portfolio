@@ -4,7 +4,9 @@ Det här dokumentet är den **sammanslagna tekniska referensen** från Capace-pr
 
 **Kanoniskt repo (kod + deploy):** [github.com/Elli2022/wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio)  
 **Live:** [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app)  
-**Ursprungsrepo (arkiverat, historik):** [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio)
+**Ursprungsrepo (2023 snapshot på GitHub):** [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio)
+
+**Historik i detta repo:** [HISTORY.md](./HISTORY.md) · [hela original-README ordagrant](./history/README-My-Headless-Wordpress-Portfolio-2023.md) · [filstruktur 2023](./history/STRUCTURE-2023.md)
 
 Kort teknisk karta: [ARCHITECTURE.md](../ARCHITECTURE.md). Rekryterare och URL:er: [README.md](../README.md).
 
