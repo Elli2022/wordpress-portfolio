@@ -1,6 +1,7 @@
 {
   "name": "wordpress-portfolio",
   "version": "0.1.0",
+  "description": "Headless WordPress portfolio with Next.js 14, TypeScript, WPGraphQL, and recruiter-ready case studies.",
   "private": true,
   "scripts": {
     "dev": "next dev",

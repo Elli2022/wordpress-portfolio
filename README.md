@@ -1,5 +1,7 @@
 # Headless WordPress Portfolio
 
+**Live demo:** [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app) · **Repo:** [github.com/Elli2022/wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio)
+
 ![Next.js](https://img.shields.io/badge/Next.js-14-black)
 ![React](https://img.shields.io/badge/React-18-61dafb)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6)
@@ -7,211 +9,107 @@
 ![WPGraphQL](https://img.shields.io/badge/CMS-WPGraphQL-6b21a8)
 ![Status](https://img.shields.io/badge/Status-Live-success)
 
-**Produktion (kanonisk URL):** [https://elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app)
-
-**GitHub:** [github.com/Elli2022/wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio)
-
-Capace-praktikportfolio (Malmö, nov 2023 – feb 2024), moderniserad 2026 — samma visuella identitet som originalet, stabil deploy, intervjuklara case studies och tydlighet kring AI-användning.
-
-**Ursprungsrepo (arkiverat):** [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) — all detaljerad dokumentation om komponenter, sidor och GraphQL är **sammanslagen** i detta repo, inget går förlorat:
-
-| Dokument | Innehåll |
-|----------|----------|
-| [docs/HISTORY.md](./docs/HISTORY.md) | Tidslinje v1 (2023) → v2 (2026), vad som bevarats |
-| [legacy/my-headless-wordpress-portfolio-2023/](./legacy/my-headless-wordpress-portfolio-2023/) | **Hela 2023-kodbaser** (importerad från My-Headless-Wordpress-Portfolio) |
-| [docs/history/README-My-Headless-Wordpress-Portfolio-2023.md](./docs/history/README-My-Headless-Wordpress-Portfolio-2023.md) | **Hela original-README** (ordagrant) |
-| [docs/CODEBASE.md](./docs/CODEBASE.md) | Uppdaterad referens: komponenter, sidor, queries, 2023→2026 |
-| [ARCHITECTURE.md](./ARCHITECTURE.md) | Kort teknisk karta och komponentmappning |
+A production-ready **headless portfolio**: WordPress (content) + Next.js 14 (experience). Built during an internship at **Capace Media Group AB** (Malmö, 2023–2024), modernized in 2026 for stable deploy, recruiter-friendly case studies, and transparent AI-assisted workflow.
 
 ---
 
-## Är den redo för produktion?
+## Why recruiters should open this
 
-**Ja.** För junior-/praktikroller och rekryterare som vill se headless CMS, React/Next.js och genomtänkt projektflöde är portfolion **redo att skickas**.
+| What you will see | Why it matters |
+|-------------------|----------------|
+| **Split CMS + frontend** | Real headless pattern — not a WordPress theme with a skin |
+| **Case study first** | Topic filters → pitch / outcome / learnings → *then* live demo + GitHub |
+| **7 shipped projects** | Clear progression: APIs, agency UI, auth/blog evolution, focused demos |
+| **Production habits** | CMS fallbacks, screenshot pipeline, resilient images, typed GraphQL layer |
+| **Honest About page** | How AI is used as a tool — architecture and review stay human-owned |
 
-| Kontroll | Status |
-|----------|--------|
-| Live på Vercel | ✅ [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app) |
-| Startsida, About, Contact | ✅ 200 |
-| Case studies `/work/[slug]` | ✅ 7 projekt |
-| WordPress GraphQL (CMS) | ✅ [elliportfolio.atwebpages.com/graphql](http://elliportfolio.atwebpages.com/graphql) |
-| `main` pushad till GitHub | ✅ |
-| Bygge lokalt (`npm run build`) | ✅ |
-
-**Vad som imponerar på rekryterare**
-
-- **Headless-arkitektur** — WordPress för innehåll, Next.js för upplevelsen (inte bara en WordPress-tema-sida).
-- **Case study först** — filter med topic pills → intern sida med pitch/outcome/learned → *sedan* live-demo och GitHub.
-- **7 deployade projekt** med tydlig progression (API-sök, byrå-UI, blogg-evolution, små demos).
-- **Ärlig AI-sektion** på About — visar mognad och transparens (2026-arbetsätt), inte “dold” AI.
-- **Produktionsmindset** — fallbacks när CMS-sidor saknas, lokala screenshots, robust bildladdning.
-
-**Vad som är “bra nog”, inte perfekt**
-
-- About/Contact kommer ofta från **fallback i kod** om sidorna inte finns i WordPress (fungerar bra, men nämn gärna i intervju).
-- Övriga demos ligger kvar på **Netlify** (medvetet — det är separata praktikprojekt, inte portfolion själv).
-- LinkedIn är inte länkad än (medvetet val).
+**Best for:** junior / internship / first frontend roles where you want evidence of React, Next.js, and CMS integration thinking.
 
 ---
 
-## Om mig (samma innehåll som på sajten)
+## Quick start (2 minutes)
 
-**Eleonora Nocentini Sköldebrink** · junior utvecklare · Malmö, Sverige
+1. Open the [live site](https://elli-wordpress-portfolio.vercel.app/)
+2. Use **topic pills** (React, Next.js, WordPress, …) and the **project gallery**
+3. Open a case study — e.g. [Headless Portfolio](https://elli-wordpress-portfolio.vercel.app/work/wordpress-portfolio-headless) or [Pokémon Search](https://elli-wordpress-portfolio.vercel.app/work/pokemon-search-app)
+4. Read the **60-second pitch**, then **View live project**
 
-Jag bygger tydliga, minimala gränssnitt — från praktikprototyper på **Capace** till produktionsnära headless-upplägg med React, Next.js och WordPress GraphQL.
-
-Praktiken (nov 2023 – feb 2024) gav verklig byråvana: kundnära layouter, API-drivna appar och den här portfolion. 2026 moderniserade jag kodbasen för stabil deploy på Vercel — med AI-assisterad utveckling, men alltid granskat och testat av mig innan det ship:as.
-
-**Det jag tar med till ett team**
-
-- React & Next.js (App Router, TypeScript)
-- Headless WordPress · WPGraphQL · ACF
-- API-drivna UI (loading, tomt tillstånd, fel)
-- Tydliga case studies och läsbar komponentstruktur
-- Deploy och underhåll av uppdelad CMS + frontend
-
-**Så använder jag AI (transparent)**
-
-Jag använder AI-verktyg för att snabba upp boilerplate, refaktorering och dokumentation — på samma sätt som många team jobbar 2026. Jag ship:ar inte kod jag inte kan förklara: jag läser diffen, kör appen lokalt och fixar det som går sönder. Så portfolion kunde förnyas utan att byta arkitektur.
-
-**Kontakt**
-
-- E-post: [eleonora.nocentini@gmail.com](mailto:eleonora.nocentini@gmail.com)
-- GitHub: [github.com/Elli2022](https://github.com/Elli2022)
-- Plats: Malmö, Sverige
-
-På sajten: [About](https://elli-wordpress-portfolio.vercel.app/about) · [Contact](https://elli-wordpress-portfolio.vercel.app/contact)
+**Flagship walkthrough (~3 min):** Home → filter → case study → explain WordPress ↔ GraphQL ↔ Vercel + AwardSpace CMS.
 
 ---
 
-## URL:er — snabbreferens
+## About the developer
 
-### Portfolion (denna app)
+**Eleonora Nocentini Sköldebrink** · Junior developer · Malmö, Sweden
 
-| Vad | URL |
-|-----|-----|
-| **Live (produktion)** | https://elli-wordpress-portfolio.vercel.app |
-| **Startsida** | https://elli-wordpress-portfolio.vercel.app/ |
-| **About** | https://elli-wordpress-portfolio.vercel.app/about |
-| **Contact** | https://elli-wordpress-portfolio.vercel.app/contact |
-| **Case study (flaggskepp)** | https://elli-wordpress-portfolio.vercel.app/work/wordpress-portfolio-headless |
-| **Repo** | https://github.com/Elli2022/wordpress-portfolio |
+I build clear, minimal interfaces — from agency-style internship prototypes at **Capace** to production-minded headless setups with React, Next.js, and WordPress GraphQL.
 
-### CMS (WordPress + GraphQL)
+The internship (Nov 2023 – Feb 2024) covered client-near layouts, API-driven apps, and this portfolio. In 2026 I refreshed the codebase for reliable Vercel deploys — using AI for boilerplate and docs, with every change reviewed and run locally before shipping.
 
-| Vad | URL |
-|-----|-----|
-| **GraphQL-endpoint** | http://elliportfolio.atwebpages.com/graphql |
-| **CMS-dokumentation** | `wordpress/README.md`, `wordpress/HOSTING_GRATIS.md` |
-
-### Praktikprojekt (live demos — Netlify)
-
-| Projekt | Live | Case study på portfolion |
-|---------|------|---------------------------|
-| Headless Portfolio | [Vercel](https://elli-wordpress-portfolio.vercel.app) | [/work/wordpress-portfolio-headless](https://elli-wordpress-portfolio.vercel.app/work/wordpress-portfolio-headless) |
-| Pokémon Search | [pokemon-search-application.netlify.app](https://pokemon-search-application.netlify.app) | [/work/pokemon-search-app](https://elli-wordpress-portfolio.vercel.app/work/pokemon-search-app) |
-| Advokatbyrå Site | [w-advokatbyra-malmo.netlify.app](https://w-advokatbyra-malmo.netlify.app) | [/work/advokatbyra-site](https://elli-wordpress-portfolio.vercel.app/work/advokatbyra-site) |
-| Next.js Auth Blog (modern) | [my-nextjs-project-modernized.netlify.app](https://my-nextjs-project-modernized.netlify.app) | [/work/nextjs-auth-blog-modernized](https://elli-wordpress-portfolio.vercel.app/work/nextjs-auth-blog-modernized) |
-| Auth Blog Platform | [auth-blog-platform.netlify.app](https://auth-blog-platform.netlify.app) | [/work/auth-blog-platform](https://elli-wordpress-portfolio.vercel.app/work/auth-blog-platform) |
-| Calculator App | [calculator-app-elli2022.netlify.app](https://calculator-app-elli2022.netlify.app) | [/work/calculator-app](https://elli-wordpress-portfolio.vercel.app/work/calculator-app) |
-| Nic Cage Snacks Shop | [nic-cage-snacks.netlify.app](https://nic-cage-snacks.netlify.app) | [/work/nic-cage-snacks-shop](https://elli-wordpress-portfolio.vercel.app/work/nic-cage-snacks-shop) |
-
-> **Obs:** Den gamla Netlify-URL:en för *själva portfolion* (`elli-wordpress-portfolio.netlify.app`) ska peka om till Vercel via `netlify.toml` om den siten fortfarande är kopplad. Kanonisk adress är alltid Vercel ovan.
+**Contact:** [eleonora.nocentini@gmail.com](mailto:eleonora.nocentini@gmail.com) · [GitHub](https://github.com/Elli2022) · [About](https://elli-wordpress-portfolio.vercel.app/about) · [Contact](https://elli-wordpress-portfolio.vercel.app/contact)
 
 ---
 
-## Intervjuguide (≈3 minuter)
-
-1. Öppna [startsidan](https://elli-wordpress-portfolio.vercel.app/) — visa **karusell** och **topic pills** (React, Next.js, WordPress …).
-2. Filtrera t.ex. **JavaScript** → öppna **Advokatbyrå** → läs **60-sekunders pitch**, **outcome**, **what I learned**.
-3. Klicka **View live project** *efter* kontext (visar produkt­tänk).
-4. Avsluta med flaggskeppet: **Headless Portfolio** — förklara WordPress ↔ Next.js ↔ Vercel/AwardSpace.
-5. Om AI kommer upp: hänvisa till [About](https://elli-wordpress-portfolio.vercel.app/about) — du använder AI som verktyg, du äger arkitekturen och kan förklara tradeoffs.
-
-**Tre projekt att prioritera i samtal**
-
-1. Headless WordPress Portfolio (arkitektur + praktik)
-2. Pokémon Search App (API, states, UX)
-3. Advokatbyrå Site (förtroende, hierarki, kundnära UI)
-
----
-
-## Arkitektur
+## Architecture
 
 ```
 WordPress (ACF + WPGraphQL)  ──GraphQL──►  Next.js 14 (App Router)
-     AwardSpace CMS                         Vercel frontend
+     AwardSpace CMS                         Vercel (frontend)
 ```
 
-| Lager | Roll |
+| Layer | Role |
 |--------|------|
-| **WordPress** | Home hero, About/Contact när sidor finns i CMS |
-| **Next.js** | UI, topic pills, horisontellt galleri, case studies på `/work/[slug]` |
-| **`portfolio-cms.php`** | GraphQL-kompatibilitet för legacy-fält |
-| **`src/data/projects.ts`** | Projekt, copy, deploy-URL:er, screenshots |
-| **`src/lib/fallback-content.ts`** | About/Contact/Home när CMS saknar sidor |
+| **WordPress** | Home hero, About/Contact when pages exist in CMS |
+| **Next.js** | UI, topic pills, horizontal gallery, case studies at `/work/[slug]` |
+| **`portfolio-cms.php`** | GraphQL compatibility for legacy ACF fields |
+| **`src/data/projects.ts`** | Project copy, deploy URLs, interview narrative |
+| **`src/lib/fallback-content.ts`** | About/Contact/Home when CMS pages are missing |
 
-### Användarflöde
+**Visitor flow:** Home (filter / gallery / grid) → `/work/[slug]` case study → live demo + GitHub.
 
-```
-Besökare → Startsida (filter / galleri / grid)
-         → /work/[slug]  (case study)
-         → Live demo + GitHub
-```
+More detail: [ARCHITECTURE.md](./ARCHITECTURE.md) · [docs/CODEBASE.md](./docs/CODEBASE.md)
 
 ---
 
-## Funktioner
+## Featured projects
 
-- Case study-flöde **innan** externa live-länkar
-- Headless CMS-innehåll där det är konfigurerat
-- Graceful fallbacks när About/Contact saknas i WordPress
-- Responsivt grid + topic-filter (`?category=`)
-- Startsida-karusell med alla deployade projekt + extra GitHub-repos
-- Robusta projektbilder: lokal PNG → mShots → thum.io → placeholder
-- Playwright-skript för att fånga om screenshots (`npm run screenshots`)
+| Project | Live | Case study |
+|---------|------|------------|
+| **Headless Portfolio** (this app) | [Vercel](https://elli-wordpress-portfolio.vercel.app) | [/work/wordpress-portfolio-headless](https://elli-wordpress-portfolio.vercel.app/work/wordpress-portfolio-headless) |
+| Pokémon Search App | [Netlify](https://pokemon-search-application.netlify.app) | [/work/pokemon-search-app](https://elli-wordpress-portfolio.vercel.app/work/pokemon-search-app) |
+| Law Firm Site (Advokatbyrå) | [Netlify](https://w-advokatbyra-malmo.netlify.app) | [/work/advokatbyra-site](https://elli-wordpress-portfolio.vercel.app/work/advokatbyra-site) |
+| Next.js Auth Blog (modern) | [Netlify](https://my-nextjs-project-modernized.netlify.app) | [/work/nextjs-auth-blog-modernized](https://elli-wordpress-portfolio.vercel.app/work/nextjs-auth-blog-modernized) |
+| Auth Blog Platform | [Netlify](https://auth-blog-platform.netlify.app) | [/work/auth-blog-platform](https://elli-wordpress-portfolio.vercel.app/work/auth-blog-platform) |
+| Calculator App | [Netlify](https://calculator-app-elli2022.netlify.app) | [/work/calculator-app](https://elli-wordpress-portfolio.vercel.app/work/calculator-app) |
+| Nic Cage Snacks Shop | [Netlify](https://nic-cage-snacks.netlify.app) | [/work/nic-cage-snacks-shop](https://elli-wordpress-portfolio.vercel.app/work/nic-cage-snacks-shop) |
+
+**Interview priorities:** (1) Headless Portfolio — architecture, (2) Pokémon Search — API & UX states, (3) Law Firm Site — trust & hierarchy.
 
 ---
 
-## Skärmdumpar
+## Production checklist
 
-Live startsida: [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app) (galleri, topic pills, projektgrid).
+| Check | Status |
+|-------|--------|
+| Live on Vercel | ✅ [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app) |
+| Home, About, Contact | ✅ |
+| Case studies `/work/[slug]` | ✅ 7 projects |
+| WordPress GraphQL | ✅ [elliportfolio.atwebpages.com/graphql](http://elliportfolio.atwebpages.com/graphql) |
+| `npm run build` | ✅ |
 
-### Case study — Headless Portfolio (desktop)
+**Known tradeoffs (fine to mention in interviews):** About/Contact often use **code fallbacks** when WP pages are empty; other demos stay on **Netlify** as separate internship repos; LinkedIn not linked by choice.
 
-![Case study — Headless WordPress Portfolio](./public/screenshots/projects/wordpress-portfolio-headless/desktop.png)
+---
 
-*Live:* [/work/wordpress-portfolio-headless](https://elli-wordpress-portfolio.vercel.app/work/wordpress-portfolio-headless)
+## Screenshots
 
-### Case study — Pokémon Search (desktop)
+![Headless WordPress Portfolio — case study](./public/screenshots/projects/wordpress-portfolio-headless/desktop.png)
 
-![Case study — Pokémon Search App](./public/screenshots/projects/pokemon-search-app/desktop.png)
+![Pokémon Search App — case study](./public/screenshots/projects/pokemon-search-app/desktop.png)
 
-*Live:* [/work/pokemon-search-app](https://elli-wordpress-portfolio.vercel.app/work/pokemon-search-app)
+![Law Firm Site — case study](./public/screenshots/projects/advokatbyra-site/desktop.png)
 
-### Case study — Advokatbyrå (desktop)
-
-![Case study — Advokatbyrå Site](./public/screenshots/projects/advokatbyra-site/desktop.png)
-
-*Live:* [/work/advokatbyra-site](https://elli-wordpress-portfolio.vercel.app/work/advokatbyra-site)
-
-### Övriga projekt (thumbnails i repot)
-
-Varje projekt har `desktop.png`, `mobile.png` och `thumb.png` under:
-
-`public/screenshots/projects/[slug]/`
-
-| Slug | Mapp |
-|------|------|
-| `wordpress-portfolio-headless` | `public/screenshots/projects/wordpress-portfolio-headless/` |
-| `pokemon-search-app` | `public/screenshots/projects/pokemon-search-app/` |
-| `advokatbyra-site` | `public/screenshots/projects/advokatbyra-site/` |
-| `nextjs-auth-blog-modernized` | `public/screenshots/projects/nextjs-auth-blog-modernized/` |
-| `auth-blog-platform` | `public/screenshots/projects/auth-blog-platform/` |
-| `calculator-app` | `public/screenshots/projects/calculator-app/` |
-| `nic-cage-snacks-shop` | `public/screenshots/projects/nic-cage-snacks-shop/` |
-
-Uppdatera captures efter ändrade deploy-URL:er:
+All projects: `public/screenshots/projects/[slug]/` (`desktop.png`, `mobile.png`, `thumb.png`). Refresh after URL changes:
 
 ```bash
 npm run screenshots
@@ -219,103 +117,93 @@ npm run screenshots
 
 ---
 
-## Deploy
-
-| Plattform | Projekt | URL |
-|-----------|---------|-----|
-| **Vercel** (produktion) | `wordpress-portfolio` | https://elli-wordpress-portfolio.vercel.app |
-| **Netlify** (övriga demos) | separata repos | se tabell ovan |
-
-- Deploy sker från **`main`** via Vercel Git-integration.
-- Miljövariabel `wordpressApiKey` måste finnas i Vercel (Settings → Environment Variables).
-- `NEXT_PUBLIC_DEPLOY_URL` ska matcha Vercel-URL:en.
-
----
-
-## Lokal utveckling
+## Local development
 
 ```bash
 git clone https://github.com/Elli2022/wordpress-portfolio.git
 cd wordpress-portfolio
 npm install
-cp .env.local.example .env.local   # sätt wordpressApiKey
+cp .env.local.example .env.local   # set wordpressApiKey
 npm run dev
 ```
 
-Öppna [http://localhost:3000](http://localhost:3000)
+Open [http://localhost:3000](http://localhost:3000). Production-like run: `npm run build && npm run start`.
 
-Om dev-servern strular efter krasch: `rm -rf .next node_modules/.cache` och starta om.
-
-Produktionslikt lokalt:
+**Environment variables**
 
 ```bash
-npm run build && npm run start
-```
-
----
-
-## Miljövariabler
-
-```bash
-# .env.local
 wordpressApiKey=http://elliportfolio.atwebpages.com/graphql
 NEXT_PUBLIC_DEPLOY_URL=https://elli-wordpress-portfolio.vercel.app
 ```
 
-| Variabel | Syfte |
-|----------|--------|
-| `wordpressApiKey` | GraphQL-endpoint till WordPress |
-| `NEXT_PUBLIC_DEPLOY_URL` | Bas-URL för previews / metadata |
+| Variable | Purpose |
+|----------|---------|
+| `wordpressApiKey` | WordPress GraphQL endpoint |
+| `NEXT_PUBLIC_DEPLOY_URL` | Base URL for previews / metadata |
 
 ---
 
 ## Routes
 
-| Route | Syfte |
-|--------|--------|
-| `/` | Galleri, topic pills, projektgrid |
+| Route | Purpose |
+|--------|---------|
+| `/` | Gallery, topic pills, project grid |
 | `/work/[slug]` | Case study (pitch, outcome, screenshots, live + GitHub) |
-| `/about` | Om mig (CMS eller fallback) |
-| `/contact` | Kontakt (CMS eller fallback) |
-| `/projects/[slug]` | WordPress-inlägg (t.ex. `hello-world`) |
-| `/all` | Legacy/alternativ kontaktväg |
+| `/about` | About (CMS or fallback) |
+| `/contact` | Contact (CMS or fallback) |
+| `/projects/[slug]` | WordPress post (e.g. `hello-world`) |
+| `/all` | Legacy contact path |
 
 ---
 
-## Viktiga filer
+## Key files
 
-| Fil | Innehåll |
-|-----|----------|
-| `src/data/projects.ts` | Alla projekt, deploy-URL:er, intervjucopy |
-| `src/lib/fallback-content.ts` | About, Contact, Home-fallback |
-| `src/lib/wp.ts` | GraphQL-klient (returnerar `null` om nyckel saknas) |
-| `src/lib/project-images.ts` | Bildfallback-kedja |
-| `src/app/components/ProjectShowcase.tsx` | Galleri, filter, grid på startsidan |
-| `docs/CODEBASE.md` | Detaljerad komponent- och sidreferens (från ursprungsrepo) |
-| `wordpress/mu-plugins/portfolio-cms.php` | CMS GraphQL-kompatibilitet |
-| `netlify.toml` | 301-redirect av gammal portfolio-Netlify → Vercel |
+| File | Contents |
+|------|----------|
+| `src/data/projects.ts` | Projects, deploy URLs, case study copy |
+| `src/lib/fallback-content.ts` | About, Contact, Home fallbacks |
+| `src/lib/wp.ts` | GraphQL client |
+| `src/app/components/ProjectShowcase.tsx` | Gallery, filter, grid on home |
+| `wordpress/mu-plugins/portfolio-cms.php` | CMS GraphQL compatibility |
+| `legacy/my-headless-wordpress-portfolio-2023/` | Full 2023 internship codebase snapshot |
 
 ---
 
-## Relaterade repos (nov 2023, Capace)
+## Documentation
 
-| Repo | Roll |
+| Document | Contents |
+|----------|----------|
+| [docs/CODEBASE.md](./docs/CODEBASE.md) | Components, pages, GraphQL helpers, 2023→2026 mapping |
+| [docs/HISTORY.md](./docs/HISTORY.md) | Timeline and preserved artifacts |
+| [legacy/](./legacy/) | Imported 2023 source tree |
+| [wordpress/README.md](./wordpress/README.md) | Local Docker CMS setup |
+| [wordpress/HOSTING.md](./wordpress/HOSTING.md) | Free WordPress.org hosting for GraphQL |
+
+---
+
+## Deploy
+
+| Platform | URL |
+|----------|-----|
+| **Vercel** (production) | https://elli-wordpress-portfolio.vercel.app |
+| **Netlify** | Separate repos for internship demos (see table above) |
+
+Deploy from `main` via Vercel Git integration. Set `wordpressApiKey` in Vercel environment variables.
+
+---
+
+## Related repositories
+
+| Repo | Role |
 |------|------|
-| **[wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio)** | **Kanoniskt** — kod, deploy, dokumentation |
-| [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) | Arkiverat — 2023-praktiksnapshot; pekar hit |
-| [frontend-application](https://github.com/Elli2022/frontend-application) | Tidigare praktik-frontend |
-| [typescript-app-template](https://github.com/Elli2022/typescript-app-template) | Mall |
-| [fullstack-application](https://github.com/Elli2022/fullstack-application) | Fullstack-övning |
-| [nextjs-auth-blog-modernized](https://github.com/Elli2022/nextjs-auth-blog-modernized) | Auth-blogg (demo) |
+| **wordpress-portfolio** (this) | Canonical — code, deploy, docs |
+| [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) | 2023 snapshot (also in `legacy/`) |
+| [frontend-application](https://github.com/Elli2022/frontend-application) | Earlier internship frontend |
+| [typescript-app-template](https://github.com/Elli2022/typescript-app-template) | Course template |
+| [fullstack-application](https://github.com/Elli2022/fullstack-application) | Fullstack practice |
 
 ---
 
-## CMS-setup
+## License & use
 
-Se [wordpress/README.md](./wordpress/README.md) och [wordpress/HOSTING_GRATIS.md](./wordpress/HOSTING_GRATIS.md) för lokal Docker-setup, ACF JSON och import av innehåll.
-
----
-
-## Licens & användning
-
-Portfolio för rekrytering och praktik/demo. Kontakta mig via e-post ovan vid frågor om kod eller walkthrough.
+Portfolio for hiring, internships, and demos. Email above for a live walkthrough or code questions.

@@ -1,5 +1,7 @@
 # Gratis WordPress.org-host för portfolio-GraphQL
 
+> **English:** [HOSTING.md](./HOSTING.md)
+
 Det här ersätter **WordPress.com betalplan** (där du inte kan installera WPGraphQL).  
 Du behöver **WordPress.org** på en host som tillåter plugins — helt gratis.
 

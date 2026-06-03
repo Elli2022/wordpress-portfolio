@@ -1,14 +1,14 @@
 # Codebase reference — Headless WordPress Portfolio
 
-Det här dokumentet är den **sammanslagna tekniska referensen** från Capace-praktikportfolion (nov 2023 – feb 2024) och 2026-uppdateringen i [wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio).
+Merged technical reference from the Capace internship portfolio (Nov 2023 – Feb 2024) and the 2026 update in [wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio).
 
-**Kanoniskt repo (kod + deploy):** [github.com/Elli2022/wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio)  
+**Canonical repo:** [github.com/Elli2022/wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio)  
 **Live:** [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app)  
-**Ursprungsrepo (2023 snapshot på GitHub):** [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio)
+**2023 snapshot:** [legacy/my-headless-wordpress-portfolio-2023/](../legacy/my-headless-wordpress-portfolio-2023/)
 
-**Historik i detta repo:** [HISTORY.md](./HISTORY.md) · [hela original-README ordagrant](./history/README-My-Headless-Wordpress-Portfolio-2023.md) · [filstruktur 2023](./history/STRUCTURE-2023.md)
+**History:** [HISTORY.md](./HISTORY.md) · [original README verbatim](./history/README-My-Headless-Wordpress-Portfolio-2023.md) · [2023 structure](./history/STRUCTURE-2023.md)
 
-Kort teknisk karta: [ARCHITECTURE.md](../ARCHITECTURE.md). Rekryterare och URL:er: [README.md](../README.md).
+Overview: [ARCHITECTURE.md](../ARCHITECTURE.md) · Recruiter guide: [README.md](../README.md)
 
 ---
 

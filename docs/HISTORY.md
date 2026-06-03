@@ -6,7 +6,7 @@ One portfolio, two GitHub repositories over time. **All documentation and evolut
 
 | Version | Period | Repository | Frontend | Notes |
 |---------|--------|------------|----------|--------|
-| **v1 — internship** | Nov 2023 – Feb 2024 | [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) | [my-headless-wordpress-portfolio.vercel.app](https://my-headless-wordpress-portfolio.vercel.app) | Capace praktik; App Router; detailed component README |
+| **v1 — internship** | Nov 2023 – Feb 2024 | [My-Headless-Wordpress-Portfolio](https://github.com/Elli2022/My-Headless-Wordpress-Portfolio) | [my-headless-wordpress-portfolio.vercel.app](https://my-headless-wordpress-portfolio.vercel.app) | Capace internship; App Router; detailed component README |
 | **v2 — production** | 2026 | [wordpress-portfolio](https://github.com/Elli2022/wordpress-portfolio) | [elli-wordpress-portfolio.vercel.app](https://elli-wordpress-portfolio.vercel.app) | Case studies, gallery, CMS fallbacks, merged docs |
 
 ## What is preserved in this repo
